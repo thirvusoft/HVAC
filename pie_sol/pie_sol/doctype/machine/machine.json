@@ -1,0 +1,198 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{MAC}-{customer_abbreviation}-{#####}",
+ "creation": "2024-05-11 12:41:35.809498",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "item_section",
+  "customer_name",
+  "customer_id",
+  "machine_id",
+  "inst_report_no",
+  "brand_name",
+  "mc_warranty",
+  "installed_at",
+  "remarks",
+  "indoor_model",
+  "outdoor_model",
+  "column_break_jwmy",
+  "mc_type",
+  "installation_date",
+  "wty_card_no",
+  "invoice_number",
+  "serial_no_asset_id",
+  "model_name",
+  "tonnes",
+  "indoor_serial_no",
+  "outdoor_serial_no",
+  "customer_abbreviation",
+  "section_break_bcpf",
+  "item"
+ ],
+ "fields": [
+  {
+   "fieldname": "customer_id",
+   "fieldtype": "Data",
+   "label": "Customer Id"
+  },
+  {
+   "fieldname": "machine_id",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Machine Id"
+  },
+  {
+   "fieldname": "inst_report_no",
+   "fieldtype": "Data",
+   "label": "Inst. Report No"
+  },
+  {
+   "fieldname": "brand_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Brand Name",
+   "options": "Item Group",
+   "reqd": 1
+  },
+  {
+   "fieldname": "mc_warranty",
+   "fieldtype": "Select",
+   "label": "MC warranty",
+   "options": "0\n1\n2\n3\n4\n5"
+  },
+  {
+   "fieldname": "installed_at",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Installed at",
+   "options": "HOME\nOFFICE\nCOMPANY",
+   "reqd": 1
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks",
+   "max_height": "30px"
+  },
+  {
+   "fieldname": "column_break_jwmy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "mc_type",
+   "fieldtype": "Select",
+   "label": "MC Type",
+   "options": "SRAC\nSVAC\nSTAC\nSMAC\nSIAC",
+   "reqd": 1
+  },
+  {
+   "fieldname": "installation_date",
+   "fieldtype": "Date",
+   "label": "Installation Date"
+  },
+  {
+   "fieldname": "wty_card_no",
+   "fieldtype": "Data",
+   "label": "Wty Card No."
+  },
+  {
+   "fieldname": "invoice_number",
+   "fieldtype": "Data",
+   "label": "Invoice Number"
+  },
+  {
+   "fieldname": "serial_no_asset_id",
+   "fieldtype": "Data",
+   "label": "Serial No/ Asset Id"
+  },
+  {
+   "fieldname": "model_name",
+   "fieldtype": "Link",
+   "label": "Model Name",
+   "options": "Item Group"
+  },
+  {
+   "fieldname": "tonnes",
+   "fieldtype": "Select",
+   "label": "Tonnes",
+   "options": "1\n1.5\n2\n2.5\n3\n3.5\n4\n4.5\n5\n5.6"
+  },
+  {
+   "fieldname": "indoor_serial_no",
+   "fieldtype": "Data",
+   "label": "Indoor Serial No"
+  },
+  {
+   "fieldname": "outdoor_serial_no",
+   "fieldtype": "Data",
+   "label": "Outdoor Serial No"
+  },
+  {
+   "fieldname": "item_section",
+   "fieldtype": "Section Break",
+   "label": "Item"
+  },
+  {
+   "fieldname": "section_break_bcpf",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "item",
+   "fieldtype": "Table",
+   "label": "Item ",
+   "options": "Item table"
+  },
+  {
+   "fieldname": "customer_name",
+   "fieldtype": "Link",
+   "label": "Customer Name",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "customer_name.custom_abbreviation",
+   "fieldname": "customer_abbreviation",
+   "fieldtype": "Data",
+   "label": "Customer Abbreviation"
+  },
+  {
+   "fieldname": "indoor_model",
+   "fieldtype": "Link",
+   "label": "Indoor Model",
+   "options": "Item"
+  },
+  {
+   "fieldname": "outdoor_model",
+   "fieldtype": "Link",
+   "label": "Outdoor Model",
+   "options": "Item"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-05-14 11:02:23.398823",
+ "modified_by": "Administrator",
+ "module": "pie-sol",
+ "name": "Machine",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
