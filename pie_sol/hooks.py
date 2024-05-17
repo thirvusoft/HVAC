@@ -129,11 +129,14 @@ doc_events = {
 	# 	"on_update": "method",
 	# 	"on_cancel": "method",
 	# 	"on_trash": "method"
+    "Customer":{
+      "validate":  ["pie_sol.pie_sol.utils.py.customer.validate_customer_abbreviation","pie_sol.pie_sol.utils.py.customer.mobile_number_validation1","pie_sol.pie_sol.utils.py.customer.mobile_number_validation2","pie_sol.pie_sol.utils.py.customer.validate_customer_emails"]
+	},
+    
 	"Machine":{
-    # "setup":"pie_sol.pie_sol.utils.py.machine.machineentrysetup",
     "before_insert":["pie_sol.pie_sol.utils.py.machine.tableentry",],
-    # "before_save":["pie_sol.pie_sol.utils.py.customer.customerservice","pie_sol.pie_sol.utils.py.customer.customerabb"]
-    # "on_submit":"pie_sol.pie_sol.utils.py.customer.customerservice"
+    "after_insert":"pie_sol.pie_sol.utils.py.customer.customerservice",
+
 	}
 }
 
