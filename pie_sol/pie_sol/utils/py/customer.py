@@ -58,3 +58,32 @@ def customerservice(doc,events):
         })
     cus.save()
     cus.reload()
+
+
+def duplicateEntry(doc , events):
+    entries = []
+    for i in doc.custom_records:
+        if i.machine in entries:
+            frappe.throw(i.machine + " Already in available in table")
+        else:
+            entries.append(i.machine)
+
+
+def updaterecords(doc,events):
+    name=doc.name
+    customer_name=doc.customer_name
+    cus=frappe.get_doc('Customer',customer_name)
+    print(cus)
+    print(name)
+    for row in cus.custom_records:
+        if row.machine==name:
+            row.machine=doc.name
+            row.brand_name=doc.brand_name
+            row.mc_type=doc.mc_type
+            row.model_name=doc.model_name
+            row.indoor_model=doc.indoor_model
+            row.outdoor_model=doc.outdoor_model
+            row.tonnes=doc.tonnes
+            row.date=doc.installation_date
+    cus.save()
+    cus.reload()

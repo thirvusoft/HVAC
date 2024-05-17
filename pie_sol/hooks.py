@@ -29,7 +29,7 @@ app_license = "mit"
 # include js in doctype views
 doctype_js = {
     "Item":"pie_sol/utils/js/brand.js",
-    "Customer":"/pie_sol/utils/js/customer.js"
+    "Customer":"/pie_sol/utils/js/customer.js",
 }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
@@ -130,12 +130,14 @@ doc_events = {
 	# 	"on_cancel": "method",
 	# 	"on_trash": "method"
     "Customer":{
-      "validate":  ["pie_sol.pie_sol.utils.py.customer.validate_customer_abbreviation","pie_sol.pie_sol.utils.py.customer.mobile_number_validation1","pie_sol.pie_sol.utils.py.customer.mobile_number_validation2","pie_sol.pie_sol.utils.py.customer.validate_customer_emails"]
+      "validate":  ["pie_sol.pie_sol.utils.py.customer.validate_customer_abbreviation","pie_sol.pie_sol.utils.py.customer.mobile_number_validation1","pie_sol.pie_sol.utils.py.customer.mobile_number_validation2","pie_sol.pie_sol.utils.py.customer.validate_customer_emails"],
+	  "on_update":"pie_sol.pie_sol.utils.py.customer.duplicateEntry"
 	},
     
 	"Machine":{
     "before_insert":["pie_sol.pie_sol.utils.py.machine.tableentry",],
     "after_insert":"pie_sol.pie_sol.utils.py.customer.customerservice",
+    "on_update":"pie_sol.pie_sol.utils.py.customer.updaterecords",
 
 	}
 }

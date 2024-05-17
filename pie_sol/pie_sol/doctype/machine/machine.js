@@ -2,6 +2,10 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on("Machine", {
+
+
+
+
 	refresh(frm) {
         frm.set_query("brand_name", function () {
           return {
@@ -10,6 +14,8 @@ frappe.ui.form.on("Machine", {
             },
           };
         });
+
+
         frm.set_query("model_name", function () {
           return {
             filters: {
@@ -17,6 +23,8 @@ frappe.ui.form.on("Machine", {
             },
           };
         });
+
+
         if(frm.is_new()) {
           var child=frm.add_child('item')
           child.model_type='Indoor Serial No'
@@ -48,9 +56,16 @@ frappe.ui.form.on("Machine", {
 
   },
 
+
+
+
+
+
   indoor_serial_no: function(frm) {
     frm.events.indoor_update(frm);
-},
+  },
+
+
 
 indoor_update: function(frm) {
    if (frm.doc.item && frm.doc.item.length > 0) {
@@ -58,6 +73,25 @@ indoor_update: function(frm) {
         frm.refresh_field('item');
     }
 },
+
+
+indoor_model: function(frm) {
+  frm.events.indoor_model_update(frm);
+},
+
+
+
+indoor_model_update: function(frm) {
+ if (frm.doc.item && frm.doc.item.length > 0) {
+      frm.doc.item[0].model_name = frm.doc.indoor_model;
+      frm.refresh_field('item');
+  }
+},
+
+
+
+
+
 
 outdoor_serial_no: function(frm) {
   frm.events.outdoor_update(frm);
@@ -68,6 +102,53 @@ outdoor_update: function(frm) {
       frm.refresh_field('item'); 
   }
 },
+
+
+
+outdoor_model: function(frm) {
+  frm.events.outdoor_model_update(frm);
+},
+
+
+
+outdoor_model_update: function(frm) {
+ if (frm.doc.item && frm.doc.item.length > 0) {
+      frm.doc.item[1].model_name = frm.doc.outdoor_model;
+      frm.refresh_field('item');
+  }
+},
+
+
+tonnes: function(frm) {
+  frm.events.tonnes_update(frm);
+},
+
+tonnes_update: function(frm) {
+  if (frm.doc.item && frm.doc.item.length > 0) {
+      frm.doc.item[0].tonnes = frm.doc.tonnes;
+      frm.doc.item[1].tonnes = frm.doc.tonnes;
+      frm.refresh_field('item');
+  }
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -93,6 +174,21 @@ outdoor_update: function(frm) {
 });
 
 frappe.ui.form.on("Item table", {
+
+
+refresh(frm) {
+  frm.set_query("model_name", function () {
+      return {
+          filters: {
+              is_group: 0,
+          },
+      };
+  });
+},
+
+	
+
+
   serial_no: function(frm, cdt, cdn) {
     // Triggered when serial_no field changes in the Item doctype (child table)
     var child_doc = locals[cdt][cdn];
@@ -101,6 +197,7 @@ frappe.ui.form.on("Item table", {
     var machine_doc = frm.doc;
     if (child_doc.idx === 1){
     // Update the indoor_serial_no field in the Machine document
+
     machine_doc.indoor_serial_no = child_doc.serial_no;
     }
     if (child_doc.idx === 2){
@@ -110,8 +207,7 @@ frappe.ui.form.on("Item table", {
     // Refresh the indoor_serial_no field in the Machine document
     frm.refresh_field('indoor_serial_no');
     frm.refresh_field('outdoor_serial_no');
-
-}
-
+  },
+        
 })
 
