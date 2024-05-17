@@ -35,7 +35,7 @@ frappe.ui.form.on("Customer", {
                 callback: function(response) {
                     console.log(response.message)
                     if (response.message && response.message.length >=1) {
-                        frm.fields_dict.custom_abbreviation.set_description('<span style="color:red;">' +__('User abbreviation already exists')+'</span>');
+                        frm.fields_dict.custom_abbreviation.set_description('<span style="color:red;">' +__('User abbreviation already exists kindly change customer name')+'</span>');
                     } else {
                         frm.fields_dict.custom_abbreviation.set_description('');
                     }
