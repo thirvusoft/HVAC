@@ -10,10 +10,29 @@ frappe.ui.form.on("Machine", {
             },
           };
         });
+        frm.set_query("model_name", function () {
+          return {
+            filters: {
+      				is_group:0,
+            },
+          };
+        });
+        if(frm.is_new()) {
+          var child=frm.add_child('item')
+          child.model_type='Indoor Serial No'
+          for(var i = 0; i < 9; i++) {
+              var child=frm.add_child('item')
+              child.model_type = 'Outdoor Serial No';
+          }
+          frm.refresh_field('item');
+        }
       
-
+  
+      
     
 	},
+
+
   brand_name:function(frm) {
     frm.set_query("model_name", function () {
       return {
