@@ -30,6 +30,7 @@ app_license = "mit"
 doctype_js = {
     "Item":"pie_sol/utils/js/brand.js",
     "Customer":"/pie_sol/utils/js/customer.js",
+    "Item Group":["/pie_sol/utils/js/item_group.js","/pie_sol/utils/js/itemtable.js"],
 }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}

@@ -25,6 +25,16 @@ frappe.ui.form.on("Machine", {
         });
 
 
+
+        frm.set_query("item.model_name", function () {
+          return {
+            filters: {
+      				is_group:1,
+            },
+          };
+        });
+
+
         if(frm.is_new()) {
           var child=frm.add_child('item')
           child.model_type='Indoor Serial No'
@@ -135,23 +145,6 @@ tonnes_update: function(frm) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   model_name: function(frm) {
     frm.set_query("outdoor_model", function () {
         return {
@@ -173,6 +166,7 @@ tonnes_update: function(frm) {
   }
 });
 
+
 frappe.ui.form.on("Item table", {
 
 
@@ -180,7 +174,7 @@ refresh(frm) {
   frm.set_query("model_name", function () {
       return {
           filters: {
-              is_group: 0,
+              is_group: 1,
           },
       };
   });
@@ -209,5 +203,27 @@ refresh(frm) {
     frm.refresh_field('outdoor_serial_no');
   },
         
+
+
+  // model_name: function(frm, cdt, cdn) {
+  //   //Triggered when serial_no field changes in the Item doctype (child table)
+  //   var child_doc = locals[cdt][cdn];
+    
+  //   //Get the parent document (Machine)
+  //   var machine_doc = frm.doc;
+  //   if (child_doc.idx === 1){
+  //   //Update the indoor_serial_no field in the Machine document
+
+  //   machine_doc.indoor_model = child_doc.model_name;
+  //   }
+  //   if (child_doc.idx === 2){
+  //     //Update the indoor_serial_no field in the Machine document
+  //     machine_doc.outdoor_model = child_doc.model_name;
+  //     }
+  //   //Refresh the indoor_serial_no field in the Machine document
+  //   frm.refresh_field('indoor_model');
+  //   frm.refresh_field('outdoor_model');
+  // },
+  
 })
 
