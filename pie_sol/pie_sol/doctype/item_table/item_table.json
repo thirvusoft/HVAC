@@ -34,7 +34,7 @@
   },
   {
    "fieldname": "model_name",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Model Name",
    "options": "Item Group"
@@ -43,7 +43,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-05-17 11:32:04.685661",
+ "modified": "2024-05-20 17:06:05.263720",
  "modified_by": "Administrator",
  "module": "pie-sol",
  "name": "Item table",

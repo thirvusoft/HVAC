@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"_mzX6W5lcX\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">HVAC</span>\",\"col\":12}},{\"id\":\"aSfjLkX9bV\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Customer\",\"col\":5}},{\"id\":\"C9XwQwFQaa\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Active Customer\",\"col\":5}},{\"id\":\"ME_jE8lU1U\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Machine\",\"col\":5}},{\"id\":\"GCTaG9GNj-\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Entries\",\"col\":5}},{\"id\":\"UmI4w6pmQm\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item Group\",\"col\":5}}]",
+ "content": "[{\"id\":\"_mzX6W5lcX\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">HVAC</span>\",\"col\":12}},{\"id\":\"aSfjLkX9bV\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Customer\",\"col\":5}},{\"id\":\"C9XwQwFQaa\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Active Customer\",\"col\":5}},{\"id\":\"ME_jE8lU1U\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Machine\",\"col\":5}},{\"id\":\"GCTaG9GNj-\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Entries\",\"col\":5}},{\"id\":\"UmI4w6pmQm\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Brand and Model\",\"col\":5}}]",
  "creation": "2024-05-14 17:33:56.219969",
  "custom_blocks": [],
  "docstatus": 0,
@@ -12,7 +12,7 @@
  "is_hidden": 0,
  "label": "HVAC",
  "links": [],
- "modified": "2024-05-14 18:27:14.519456",
+ "modified": "2024-05-18 12:44:12.951800",
  "modified_by": "Administrator",
  "module": "pie-sol",
  "name": "HVAC",
@@ -52,7 +52,7 @@
   {
    "color": "Grey",
    "doc_view": "Tree",
-   "label": "Item Group",
+   "label": "Brand and Model",
    "link_to": "Item Group",
    "stats_filter": "[]",
    "type": "DocType"

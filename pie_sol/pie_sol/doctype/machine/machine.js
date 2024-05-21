@@ -37,10 +37,24 @@ frappe.ui.form.on("Machine", {
 
         if(frm.is_new()) {
           var child=frm.add_child('item')
-          child.model_type='Indoor Serial No'
+          
+
+          
+
+
+          
           for(var i = 0; i < 9; i++) {
+              if (i==0){
+
+                child.model_type='Indoor Serial No'
+              }
+              if (i==1){
+
+                child.model_type = 'Outdoor Serial No';
+              }
+
               var child=frm.add_child('item')
-              child.model_type = 'Outdoor Serial No';
+              child.model_type='Indoor Serial No';
           }
           frm.refresh_field('item');
         }

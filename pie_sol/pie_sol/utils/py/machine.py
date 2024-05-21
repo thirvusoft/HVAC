@@ -30,37 +30,37 @@ def tableentry(doc,events):
          })
         doc.append("item",
                 {
-            'model_type':'Outdoor Serial No',
+            'model_type':'Indoor Serial No',
         })
         doc.append("item",
                 {
-            'model_type':'Outdoor Serial No',
+            'model_type':'Indoor Serial No',
         })
         doc.append("item",
                 {
-            'model_type':'Outdoor Serial No',
-        })
-
-        doc.append("item",
-                {
-            'model_type':'Outdoor Serial No',
+            'model_type':'Indoor Serial No',
         })
 
         doc.append("item",
                 {
-            'model_type':'Outdoor Serial No',
+            'model_type':'Indoor Serial No',
+        })
+
+        doc.append("item",
+                {
+            'model_type':'Indoor Serial No',
         })
         doc.append("item",
                 {
-            'model_type':'Outdoor Serial No',
+            'model_type':'Indoor Serial No',
         })
         doc.append("item",
                 {
-            'model_type':'Outdoor Serial No',
+            'model_type':'Indoor Serial No',
         })
         doc.append("item",
                 {
-            'model_type':'Outdoor Serial No',
+            'model_type':'Indoor Serial No',
         })
         
 
