@@ -62,7 +62,6 @@ def tableentry(doc,events):
                 {
             'model_type':'Indoor Serial No',
         })
-        
 
 
 
