@@ -61,12 +61,13 @@ def customerservice(doc,events):
 
 
 def duplicateEntry(doc , events):
-    entries = []
-    for i in doc.custom_records:
-        if i.machine in entries:
-            frappe.throw(i.machine + " Already in available in table")
-        else:
-            entries.append(i.machine)
+    if doc.custom_records:
+        entries = []
+        for i in doc.custom_records:
+            if i.machine in entries:
+                frappe.throw(i.machine + " Already in available in table")
+            else:
+                entries.append(i.machine)
 
 
 def updaterecords(doc,events):

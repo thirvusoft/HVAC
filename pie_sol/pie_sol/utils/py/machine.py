@@ -62,7 +62,6 @@ def tableentry(doc,events):
                 {
             'model_type':'Outdoor Serial No',
         })
-        
 
 
 

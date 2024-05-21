@@ -10,23 +10,23 @@
   "customer_name",
   "customer_id",
   "machine_id",
-  "inst_report_no",
   "brand_name",
-  "mc_warranty",
-  "installed_at",
-  "remarks",
-  "indoor_model",
-  "outdoor_model",
-  "column_break_jwmy",
   "mc_type",
-  "installation_date",
-  "wty_card_no",
-  "invoice_number",
-  "serial_no_asset_id",
   "model_name",
   "tonnes",
+  "indoor_model",
   "indoor_serial_no",
+  "outdoor_model",
   "outdoor_serial_no",
+  "column_break_jwmy",
+  "installation_date",
+  "inst_report_no",
+  "installed_at",
+  "invoice_number",
+  "mc_warranty",
+  "wty_card_no",
+  "serial_no_asset_id",
+  "remarks",
   "customer_abbreviation",
   "section_break_bcpf",
   "item"
@@ -35,6 +35,7 @@
   {
    "fieldname": "customer_id",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Customer Id"
   },
   {
@@ -67,8 +68,7 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Installed at",
-   "options": "HOME\nOFFICE\nCOMPANY",
-   "reqd": 1
+   "options": "HOME\nOFFICE\nCOMPANY"
   },
   {
    "fieldname": "remarks",
@@ -84,13 +84,14 @@
    "fieldname": "mc_type",
    "fieldtype": "Select",
    "label": "MC Type",
-   "options": "SRAC\nSVAC\nSTAC\nSMAC\nSIAC",
+   "options": "SRAC-DAIKIN\nSRAC-HAIER\nCassette-LG\nDUCT-LG\nINV-CASSETTE-LG\nSRAC-INV R32-LG\nSRAC-INV R410-LG\nSRAC-LG\nVRF-LG\nLOW STATIC-MITSUBISHI\nSRAC-INV R32-MITSUBISHI\nSRAC-MITSUBISHI\nSRAC-R410-MITSUBISHI\nVRF-MITSUBISHI",
    "reqd": 1
   },
   {
    "fieldname": "installation_date",
    "fieldtype": "Date",
-   "label": "Installation Date"
+   "label": "Installation Date",
+   "reqd": 1
   },
   {
    "fieldname": "wty_card_no",
@@ -111,13 +112,15 @@
    "fieldname": "model_name",
    "fieldtype": "Link",
    "label": "Model Name",
-   "options": "Item Group"
+   "options": "Item Group",
+   "reqd": 1
   },
   {
    "fieldname": "tonnes",
    "fieldtype": "Select",
    "label": "Tonnes",
-   "options": "\n1\n1.5\n2\n2.5\n3\n3.5\n4\n4.5\n5\n5.6"
+   "options": "\n1\n1.5\n2\n2.5\n3\n3.5\n4\n4.5\n5\n5.6",
+   "reqd": 1
   },
   {
    "fieldname": "indoor_serial_no",
@@ -172,7 +175,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-16 12:41:25.190870",
+ "modified": "2024-05-20 18:30:32.786743",
  "modified_by": "Administrator",
  "module": "pie-sol",
  "name": "Machine",
