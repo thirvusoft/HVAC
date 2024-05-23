@@ -4,25 +4,26 @@
 frappe.ui.form.on("Machine", {
 
 
-
-
 	refresh(frm) {
         frm.set_query("brand_name", function () {
           return {
             filters: {
       				is_group:1,
+              parent_item_group:'All Item Groups',
             },
           };
         });
 
 
-        frm.set_query("model_name", function () {
+        frm.set_query("mc_type", function () {
           return {
             filters: {
-      				is_group:0,
+      				is_group:1,
+              parent_item_group:frm.doc.brand_name,
             },
           };
         });
+
 
 
 
@@ -65,11 +66,11 @@ frappe.ui.form.on("Machine", {
 	},
 
 
-  brand_name:function(frm) {
+  mc_type:function(frm) {
     frm.set_query("model_name", function () {
       return {
         filters: {
-            parent_item_group:frm.doc.brand_name,
+            parent_item_group:frm.doc.mc_type,
             is_group:0,
 
         },
@@ -83,6 +84,7 @@ frappe.ui.form.on("Machine", {
 
 
 
+  
 
 
   indoor_serial_no: function(frm) {
@@ -163,7 +165,9 @@ tonnes_update: function(frm) {
     frm.set_query("outdoor_model", function () {
         return {
             filters: {
+
                 item_group: frm.doc.brand_name,
+                custom_mc_type:frm.doc.mc_type,
                 custom_model: frm.doc.model_name,
             },
         };
@@ -173,12 +177,35 @@ tonnes_update: function(frm) {
         return {
             filters: {
                 item_group: frm.doc.brand_name,
+                custom_mc_type:frm.doc.mc_type,
                 custom_model: frm.doc.model_name,
             },
         };
     });
   }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 frappe.ui.form.on("Item table", {

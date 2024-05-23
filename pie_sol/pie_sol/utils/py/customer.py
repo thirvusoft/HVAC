@@ -1,5 +1,5 @@
 import frappe
-
+import time
 from frappe import _
 
 def validate_customer_abbreviation(doc, events):
@@ -70,21 +70,114 @@ def duplicateEntry(doc , events):
                 entries.append(i.machine)
 
 
-def updaterecords(doc,events):
-    name=doc.name
-    customer_name=doc.customer_name
-    cus=frappe.get_doc('Customer',customer_name)
-    print(cus)
-    print(name)
-    for row in cus.custom_records:
-        if row.machine==name:
-            row.machine=doc.name
-            row.brand_name=doc.brand_name
-            row.mc_type=doc.mc_type
-            row.model_name=doc.model_name
-            row.indoor_model=doc.indoor_model
+# def updaterecords(doc,events):
+#     name=doc.name
+#     customer_name=doc.customer_name
+#     cus=frappe.get_doc('Customer',customer_name)
+#     for row in cus.custom_records:
+#         # if row.machine==name and row.brand_name==doc.brand_name and row.mc_type==doc.mc_type and row.model_name==doc.model_name and row.indoor_model==doc.indoor_model and row.outdoor_model==doc.outdoor_model and row.tonnes==doc.tonnes and row.date==doc.installation_date:
+#         #     return
+#         # else:
+
+#             row.machine=doc.name
+#             row.brand_name=doc.brand_name
+#             row.mc_type=doc.mc_type
+#             row.model_name=doc.model_name
+#             row.indoor_model=doc.indoor_model
+#             row.outdoor_model=doc.outdoor_model
+#             row.tonnes=doc.tonnes
+#             row.date=doc.installation_date
+        
+#             print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+#     cus.save()
+
+
+
+
+# def machine_update(doc, events):
+#     for row in doc.custom_records:
+#         machine = frappe.get_doc("Machine", row.machine)
+#         print(machine, machine.brand_name, machine.installation_date, machine.indoor_model, machine.outdoor_model, machine.model_name, machine.mc_type, machine.tonnes)
+#         print(machine, row.brand_name, row.date, row.indoor_model, row.outdoor_model, row.model_name, row.mc_type, row.tonnes)
+        
+#         if frappe.db.get_value("Machine", machine.name, "brand_name") != row.brand_name:
+#             machine.brand_name = row.brand_name
+#         if frappe.db.get_value("Machine", machine.name, "mc_type") != row.mc_type:
+#             machine.mc_type = row.mc_type
+#         if frappe.db.get_value("Machine", machine.name, "model_name") != row.model_name:
+#             machine.model_name = row.model_name
+#         if frappe.db.get_value("Machine", machine.name, "indoor_model") != row.indoor_model:
+#             machine.indoor_model = row.indoor_model
+#         if frappe.db.get_value("Machine", machine.name, "outdoor_model") != row.outdoor_model:
+#             machine.outdoor_model = row.outdoor_model
+#         if frappe.db.get_value("Machine", machine.name, "tonnes") != row.tonnes:
+#             machine.tonnes = row.tonnes
+#         if frappe.db.get_value("Machine", machine.name, "installation_date") != row.date:
+#             machine.installation_date = row.date
+            
+#         machine.save()
+
+
+
+
+def customer_update(doc, events):
+    customer = frappe.get_doc("Customer", doc.customer_name)
+    for row in customer.custom_records:
+        
+        if  row.brand_name != doc.brand_name and row.machine==doc.name:
+            row.brand_name = doc.brand_name
+            print("change in brand name")
+        if  row.mc_type != doc.mc_type and row.machine==doc.name:
+            row.mc_type = doc.mc_type
+            print("changed in mc type")
+        if row.model_name != doc.model_name and row.machine==doc.name:
+            row.model_name = doc.model_name
+            print("changed in model name")
+        if row.indoor_model!= doc.indoor_model and row.machine==doc.name:
+            doc.indoor_model = doc.indoor_model
+            print("changed in indoor model")
+        if row.outdoor_model != doc.outdoor_model and row.machine==doc.name:
             row.outdoor_model=doc.outdoor_model
-            row.tonnes=doc.tonnes
-            row.date=doc.installation_date
-    cus.save()
-    cus.reload()
+            print("change in outdoor model")
+        if row.tonnes != doc.tonnes and row.machine==doc.name:
+            row.tonnes = doc.tonnes
+            print("change in tonnes","$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+        if row.date != doc.installation_date and row.machine==doc.name:
+            row.date = doc.installation_date
+            print("change in installation date","################################")
+            
+    customer.save()
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+# def machine_updaterecords(doc, events):
+#     for row in doc.custom_records:
+#         mac = frappe.get_doc('Machine', row.machine)
+#         if mac:
+#             # if mac.brand_name==row.brand_name and mac.mc_type==row.mc_type and mac.model_name==row.model_name and mac.indoor_model==row.indoor_model and mac.outdoor_model==row.outdoor_model and mac.tonnes==row.tonnes and mac.installation_date==row.date:
+#             #     return
+#             # else:
+#                 mac.update({
+#                     'brand_name': row.brand_name,
+#                     'mc_type': row.mc_type,
+#                     'model_name': row.model_name,
+#                     'indoor_model': row.indoor_model,
+#                     'outdoor_model': row.outdoor_model,
+#                     'tonnes': row.tonnes,
+#                     'installation_date': row.date
+#             })
+
+
+  
+        
