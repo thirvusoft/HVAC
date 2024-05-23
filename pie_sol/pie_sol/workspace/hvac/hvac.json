@@ -63,9 +63,9 @@
   },
   {
    "color": "Grey",
-   "doc_view": "List",
-   "label": "Indoor & Outdoor Model",
-   "link_to": "Item",
+   "doc_view": "Tree",
+   "label": "Brand and Model",
+   "link_to": "Item Group",
    "stats_filter": "[]",
    "type": "DocType"
   }
