@@ -192,10 +192,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-23 17:59:56.858870",
+ "modified": "2024-05-21 11:25:13.037835",
  "modified_by": "Administrator",
  "module": "pie-sol",
  "name": "Machine",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {
