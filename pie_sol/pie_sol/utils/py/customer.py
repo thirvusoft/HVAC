@@ -126,25 +126,18 @@ def customer_update(doc, events):
         
         if  row.brand_name != doc.brand_name and row.machine==doc.name:
             row.brand_name = doc.brand_name
-            print("change in brand name")
         if  row.mc_type != doc.mc_type and row.machine==doc.name:
             row.mc_type = doc.mc_type
-            print("changed in mc type")
         if row.model_name != doc.model_name and row.machine==doc.name:
             row.model_name = doc.model_name
-            print("changed in model name")
         if row.indoor_model!= doc.indoor_model and row.machine==doc.name:
-            doc.indoor_model = doc.indoor_model
-            print("changed in indoor model")
+            row.indoor_model = doc.indoor_model
         if row.outdoor_model != doc.outdoor_model and row.machine==doc.name:
             row.outdoor_model=doc.outdoor_model
-            print("change in outdoor model")
         if row.tonnes != doc.tonnes and row.machine==doc.name:
             row.tonnes = doc.tonnes
-            print("change in tonnes","$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
         if row.date != doc.installation_date and row.machine==doc.name:
             row.date = doc.installation_date
-            print("change in installation date","################################")
             
     customer.save()
     
