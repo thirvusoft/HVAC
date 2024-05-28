@@ -192,7 +192,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-21 11:25:13.037835",
+ "modified": "2024-05-28 18:55:58.128020",
  "modified_by": "Administrator",
  "module": "pie-sol",
  "name": "Machine",
@@ -212,6 +212,7 @@
    "write": 1
   }
  ],
+ "search_fields": "brand_name,mc_type,model_name,indoor_model,indoor_serial_no,outdoor_model,outdoor_serial_no",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []
