@@ -30,8 +30,8 @@ app_license = "mit"
 doctype_js = {
     "Item":"pie_sol/utils/js/brand.js",
     "Customer":"/pie_sol/utils/js/customer.js",
-    "Warranty":"pie_sol/utils/js/warranty.js",
-    "AMC":"pie_sol/utils/js/amc.js"
+    # "Warranty":"pie_sol/utils/js/warranty.js",
+    # "AMC":"pie_sol/utils/js/amc.js"
     
 }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
@@ -148,10 +148,10 @@ doc_events = {
 	},
     "Warranty":{
         # "before_save":"pie_sol.pie_sol.utils.py.warranty.date_validate"
-        "before_insert":"pie_sol.pie_sol.utils.py.warranty.machine_id_verify"
+        # "before_insert":"pie_sol.pie_sol.utils.py.warranty.machine_id_verify"
     },
     "AMC":{
-        "before_insert":"pie_sol.pie_sol.utils.py.amc.machine_verify"
+        # "before_insert":"pie_sol.pie_sol.utils.py.amc.machine_verify"
     }
 }
 

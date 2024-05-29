@@ -1,21 +1,20 @@
 import frappe
 
-# def date_validate(doc, events):
-#     for i, row in enumerate(doc.custom_service_date):
-#         # # Skip validation for the first row
-#         # if i == 0:
-            
-#         # Get the current row's date and the previous row's date
-#         current_date = row.get('actual_service_date')  # Replace 'date_field_name' with the actual field name
-#         planned_date = row.get('planned_service_date')  # Replace 'date_field_name' with the actual field name of the date field
-#         print(current_date,"$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
-#         print(planned_date,"&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&")
-#         # Perform date validation
+def date_validate(doc, events):
+    previous_actual_date = None  # Initialize previous actual service date outside the loop
 
-#         if current_date:
-#             print(current_date,"************************************************")
-#             if planned_date>current_date:
-#                 frappe.throw(f"Date in row {i+1} cannot be less than the date in the planned date")
+    for i, row in enumerate(doc.table_hsoa):
+        current_date = row.get('actual_service_date')   
+        print(current_date,'@@@@@@@@@@@@@@@@@@@@@@@')
+        print(previous_actual_date,'$$$$$$$$$$$$$$$$$$$$$$$$$$')
+        if current_date and previous_actual_date:
+            if previous_actual_date > current_date:
+                frappe.throw(f"Date in row {i+1} cannot be less than the date in the previous row")
+        
+        previous_actual_date = current_date  # Update previous actual service date for next iteration
+        print(previous_actual_date,'&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&')
+
+
 
 def machine_id_verify(doc,events):
 
