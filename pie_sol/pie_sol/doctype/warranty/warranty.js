@@ -16,6 +16,15 @@ frappe.ui.form.on("Warranty", {
           }
         );
     },
+    service_count:function(frm){
+      frm.set_df_property('service_count', 'read_only', 1);
+    },
+
+    start_date:function(frm){
+      frm.set_df_property('start_date', 'read_only', 1);
+    },
+
+
     period_in_month:function(frm) {
 
         if(frm.is_new()) {
@@ -24,6 +33,7 @@ frappe.ui.form.on("Warranty", {
             period_in_month=frm.doc.period_in_month
             service_count=frm.doc.service_count
             start_date=frappe.datetime.add_months(start_date,months=period_in_month);
+            default_period_in_month=frm.doc.period_in_month
             temp=""
             for (var i = 0; i < n; i++) {
 
@@ -36,9 +46,12 @@ frappe.ui.form.on("Warranty", {
             console.log(temp)
             frm.doc.end_date=temp;
             console.log(frm.doc.end_date)
+        period_in_month=default_period_in_month  
         frm.refresh_field('table_hsoa');
         frm.refresh_field('end_date');
         }
+        frm.set_df_property('period_in_month', 'read_only', 1);
+
     },
 
 
