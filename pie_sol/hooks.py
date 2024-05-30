@@ -30,10 +30,10 @@ app_license = "mit"
 doctype_js = {
     "Item":"pie_sol/utils/js/brand.js",
     "Customer":"/pie_sol/utils/js/customer.js",
-    "Item Group":["/pie_sol/utils/js/item_group.js","/pie_sol/utils/js/itemtable.js"],
+ 
 }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
-# doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
+doctype_tree_js = {"Item Group":["/pie_sol/utils/js/item_group.js","/pie_sol/utils/js/itemtable.js"],}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
 
 # Svg Icons
@@ -131,16 +131,19 @@ doc_events = {
 	# 	"on_cancel": "method",
 	# 	"on_trash": "method"
     "Customer":{
-      "validate":  ["pie_sol.pie_sol.utils.py.customer.validate_customer_abbreviation","pie_sol.pie_sol.utils.py.customer.mobile_number_validation1","pie_sol.pie_sol.utils.py.customer.mobile_number_validation2","pie_sol.pie_sol.utils.py.customer.validate_customer_emails"],
-	  "on_update":"pie_sol.pie_sol.utils.py.customer.duplicateEntry"
+      "validate":  [
+                    "pie_sol.pie_sol.utils.py.customer.mobile_number_validation1",
+                    "pie_sol.pie_sol.utils.py.customer.mobile_number_validation2",
+                    "pie_sol.pie_sol.utils.py.customer.validate_customer_emails"],
 	},
     
 	"Machine":{
     "before_insert":["pie_sol.pie_sol.utils.py.machine.tableentry",],
     "after_insert":"pie_sol.pie_sol.utils.py.customer.customerservice",
-    "on_update":"pie_sol.pie_sol.utils.py.customer.updaterecords",
+    "before_save":"pie_sol.pie_sol.utils.py.customer.customer_update",
 
 	}
+
 }
 
 # Scheduled Tasks
