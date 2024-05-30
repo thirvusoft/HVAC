@@ -16,6 +16,15 @@ frappe.ui.form.on("AMC", {
           }
         );
     },
+
+    service_count:function(frm){
+      frm.set_df_property('service_count', 'read_only', 1);
+    },
+
+    start_date:function(frm){
+      frm.set_df_property('start_date', 'read_only', 1);
+    },
+
     period_in_month:function(frm) {
 
         if(frm.is_new()) {
@@ -39,6 +48,8 @@ frappe.ui.form.on("AMC", {
         frm.refresh_field('table_ibgb');
         frm.refresh_field('end_date');
         }
+
+      frm.set_df_property('period_in_month', 'read_only', 1);
     },
 
 
