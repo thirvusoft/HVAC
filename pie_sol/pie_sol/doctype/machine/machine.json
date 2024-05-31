@@ -30,7 +30,12 @@
   "section_break_bcpf",
   "item",
   "documents_section",
-  "table_jqcu"
+  "table_jqcu",
+  "warrantyamc_tab",
+  "warranty_records_section",
+  "table_rvqo",
+  "amc_records_section",
+  "table_toxv"
  ],
  "fields": [
   {
@@ -188,11 +193,36 @@
    "fieldname": "table_jqcu",
    "fieldtype": "Table",
    "options": "Documents Table"
+  },
+  {
+   "fieldname": "warrantyamc_tab",
+   "fieldtype": "Tab Break",
+   "label": "Warranty & AMC"
+  },
+  {
+   "fieldname": "table_rvqo",
+   "fieldtype": "Table",
+   "options": "warranty records"
+  },
+  {
+   "fieldname": "warranty_records_section",
+   "fieldtype": "Section Break",
+   "label": "Warranty Records"
+  },
+  {
+   "fieldname": "amc_records_section",
+   "fieldtype": "Section Break",
+   "label": "AMC Records"
+  },
+  {
+   "fieldname": "table_toxv",
+   "fieldtype": "Table",
+   "options": "AMC records"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-28 18:55:58.128020",
+ "modified": "2024-05-30 19:54:33.265226",
  "modified_by": "Administrator",
  "module": "pie-sol",
  "name": "Machine",

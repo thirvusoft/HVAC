@@ -16,13 +16,6 @@ frappe.ui.form.on("Warranty", {
           }
         );
     },
-    service_count:function(frm){
-      frm.set_df_property('service_count', 'read_only', 1);
-    },
-
-    start_date:function(frm){
-      frm.set_df_property('start_date', 'read_only', 1);
-    },
 
 
     period_in_month:function(frm) {
@@ -50,7 +43,6 @@ frappe.ui.form.on("Warranty", {
         frm.refresh_field('table_hsoa');
         frm.refresh_field('end_date');
         }
-        frm.set_df_property('period_in_month', 'read_only', 1);
 
     },
 

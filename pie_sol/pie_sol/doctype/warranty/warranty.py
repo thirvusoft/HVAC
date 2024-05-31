@@ -23,3 +23,17 @@ class Warranty(Document):
 					frappe.throw(f"Date in row {i+1} cannot be less than the date in the previous row")
 			
 			previous_actual_date = current_date  
+
+		if self.is_new():
+			machine_id=frappe.get_doc('Machine',self.machine)
+			machine_id.append('table_rvqo',{
+				'warranty_id':self.name,
+				'start_date':self.start_date,
+				'end_date':self.end_date,
+				'service_count':self.service_count,
+				'period_of_month':self.period_in_month,
+				'contract_date':self.contract_date,
+				'serviced_by':self.serviced_by,
+				'enrolment':self.enrolment,
+			})
+			machine_id.save()

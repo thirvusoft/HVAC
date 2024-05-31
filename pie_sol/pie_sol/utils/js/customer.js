@@ -108,6 +108,8 @@ frappe.ui.form.on("Customer", {
     // },
 
 
+
+    
     custom_add_record:function(frm){
         let d = new frappe.ui.Dialog({
             title: 'Enter Machine details',
@@ -254,6 +256,15 @@ frappe.ui.form.on("Customer", {
                 
 
 });
+
+
+
+
+
+
+
+
+
 
 
 frappe.ui.form.on("Service Records", {
