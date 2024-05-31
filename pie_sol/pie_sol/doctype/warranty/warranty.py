@@ -23,7 +23,23 @@ class Warranty(Document):
                     frappe.throw(f"Date in row {i+1} cannot be less than the date in the previous row")
             
             previous_actual_date = current_date  
+
+        if self.is_new():
+
+            mac = frappe.get_doc("Machine", self.machine)
+            print(self.name,self.machine,"$$$$$$$$$$$$$$$$$$$$$$$$$")
+            mac.append("table_rvqo",
+               {
+                   'warranty_id':self.name,
+                   'start_date':self.start_date,
+                   'end_date':self.end_date,
+                   'service_count':self.service_count,
+                   'period_in_month':self.period_in_month,
+            })
+            mac.refresh('table_rvqo')
             
+
+
     def validate(self):
         if self.machine:
             machine = frappe.get_doc("Machine", self.machine)

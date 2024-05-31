@@ -201,6 +201,8 @@ tonnes: function(frm) {if (!frm.doc.model_name) {
     });
   },
   
+
+
   custom_add_warranty:function(frm){
     let d = new frappe.ui.Dialog({
         title: 'Enter Machine Warranty details',

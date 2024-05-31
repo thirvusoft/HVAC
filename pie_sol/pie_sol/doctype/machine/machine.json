@@ -220,6 +220,12 @@
    "fieldname": "table_toxv",
    "fieldtype": "Table",
    "options": "AMC records"
+  },
+  {
+   "default": "0",
+   "fieldname": "has_warranty",
+   "fieldtype": "Check",
+   "label": "Has Warranty"
   }
  ],
  "index_web_pages_for_search": 1,
