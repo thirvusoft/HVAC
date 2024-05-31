@@ -195,13 +195,12 @@
    "default": "0",
    "fieldname": "has_warranty",
    "fieldtype": "Check",
-   "hidden": 1,
    "label": "Has Warranty"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-30 17:58:57.626369",
+ "modified": "2024-05-31 11:39:06.176380",
  "modified_by": "Administrator",
  "module": "pie-sol",
  "name": "Machine",
