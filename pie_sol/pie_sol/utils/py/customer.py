@@ -39,7 +39,7 @@ def validate_customer_emails(doc, method):
     for row in doc.get("custom_information"):
         if row.email:
             frappe.utils.validate_email_address(row.email, True)
-#############
+
 
 def customerservice(doc,events):
     customer_name=doc.customer_name

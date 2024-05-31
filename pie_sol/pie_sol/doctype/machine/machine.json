@@ -27,6 +27,7 @@
   "remarks",
   "customer_abbreviation",
   "mobile_number",
+  "has_warranty",
   "section_break_bcpf",
   "item",
   "documents_section",
@@ -182,7 +183,8 @@
    "fetch_from": "customer_name.custom_mobile_number1",
    "fieldname": "mobile_number",
    "fieldtype": "Data",
-   "label": "mobile number"
+   "hidden": 1,
+   "label": "Mobile number"
   },
   {
    "fieldname": "documents_section",

@@ -30,9 +30,7 @@ app_license = "mit"
 doctype_js = {
     "Item":"pie_sol/utils/js/brand.js",
     "Customer":"/pie_sol/utils/js/customer.js",
-    # "Warranty":"pie_sol/utils/js/warranty.js",
-    # "AMC":"pie_sol/utils/js/amc.js"
-    
+ 
 }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 doctype_tree_js = {"Item Group":["/pie_sol/utils/js/item_group.js","/pie_sol/utils/js/itemtable.js"],}
@@ -137,7 +135,6 @@ doc_events = {
                     "pie_sol.pie_sol.utils.py.customer.mobile_number_validation1",
                     "pie_sol.pie_sol.utils.py.customer.mobile_number_validation2",
                     "pie_sol.pie_sol.utils.py.customer.validate_customer_emails"],
-	#   "on_update":"pie_sol.pie_sol.utils.py.customer.machine_update"
 	},
     
 	"Machine":{
@@ -145,14 +142,8 @@ doc_events = {
     "after_insert":"pie_sol.pie_sol.utils.py.customer.customerservice",
     "before_save":"pie_sol.pie_sol.utils.py.customer.customer_update",
 
-	},
-    "Warranty":{
-        # "before_save":"pie_sol.pie_sol.utils.py.warranty.date_validate"
-        # "before_insert":"pie_sol.pie_sol.utils.py.warranty.machine_id_verify"
-    },
-    "AMC":{
-        # "before_insert":"pie_sol.pie_sol.utils.py.amc.machine_verify"
-    }
+	}
+
 }
 
 # Scheduled Tasks
