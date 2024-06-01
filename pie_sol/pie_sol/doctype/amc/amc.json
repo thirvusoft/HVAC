@@ -20,6 +20,8 @@
   "scheme",
   "enrolment",
   "end_date",
+  "create_schedule",
+  "test",
   "section_break_iggz",
   "table_ibgb"
  ],
@@ -99,7 +101,6 @@
    "fieldname": "period_in_month",
    "fieldtype": "Int",
    "label": "Period (In Month)",
-   "non_negative": 1,
    "reqd": 1
   },
   {
@@ -123,11 +124,23 @@
    "label": "Machine",
    "options": "Machine Table",
    "reqd": 1
+  },
+  {
+   "fieldname": "create_schedule",
+   "fieldtype": "Button",
+   "label": "Create Schedule"
+  },
+  {
+   "default": "0",
+   "fieldname": "test",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "test"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-30 19:50:04.592850",
+ "modified": "2024-06-01 10:29:40.717927",
  "modified_by": "Administrator",
  "module": "pie-sol",
  "name": "AMC",
