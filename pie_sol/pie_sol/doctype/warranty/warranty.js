@@ -17,52 +17,15 @@ frappe.ui.form.on("Warranty", {
           }
         );
     },
-    // service_count:function(frm){
-    //   frm.set_df_property('service_count', 'read_only', 1);
-    // },
 
-    // start_date:function(frm){
-    //   frm.set_df_property('start_date', 'read_only', 1);
-    // },
-
-
-    period_in_month:function(frm) {
-
-          var n = frm.doc.service_count;
-          var start_date = frm.doc.start_date;
-          var period_in_month = frm.doc.period_in_month;
-          var default_period_in_month = frm.doc.period_in_month;
-          var start_date_update=frappe.datetime.add_months(start_date,months=period_in_month);
-          var temp = "";
-
-
-          frm.clear_table('table_hsoa');
-
-          for (var i = 0; i < n; i++) {
-              var child = frm.add_child('table_hsoa');
-              child.planned_service_date = frappe.datetime.add_months(start_date_update, i * period_in_month);
-              temp = child.planned_service_date;
-          }
-
-          frm.doc.end_date = temp;
-
-          frm.refresh_field('table_hsoa');
-          frm.refresh_field('end_date');
-
-          period_in_month = default_period_in_month;
-      },
-
-
-
-      start_date:function(frm) {
-
+    custom_create_schedule:function(frm) {
       var n = frm.doc.service_count;
       var start_date = frm.doc.start_date;
       var period_in_month = frm.doc.period_in_month;
       var default_period_in_month = frm.doc.period_in_month;
       var start_date_update=frappe.datetime.add_months(start_date,months=period_in_month);
       var temp = "";
-
+      console.log(n,start_date,period_in_month,default_period_in_month.start_date_update,temp)
 
       frm.clear_table('table_hsoa');
 
@@ -82,32 +45,88 @@ frappe.ui.form.on("Warranty", {
 
 
 
+//     period_in_month:function(frm) {
 
-  service_count:function(frm) {
-
-    var n = frm.doc.service_count;
-    var start_date = frm.doc.start_date;
-    var period_in_month = frm.doc.period_in_month;
-    var default_period_in_month = frm.doc.period_in_month;
-    var start_date_update=frappe.datetime.add_months(start_date,months=period_in_month);
-    var temp = "";
+//           var n = frm.doc.service_count;
+//           var start_date = frm.doc.start_date;
+//           var period_in_month = frm.doc.period_in_month;
+//           var default_period_in_month = frm.doc.period_in_month;
+//           var start_date_update=frappe.datetime.add_months(start_date,months=period_in_month);
+//           var temp = "";
 
 
-    frm.clear_table('table_hsoa');
+//           frm.clear_table('table_hsoa');
 
-    for (var i = 0; i < n; i++) {
-        var child = frm.add_child('table_hsoa');
-        child.planned_service_date = frappe.datetime.add_months(start_date_update, i * period_in_month);
-        temp = child.planned_service_date;
-    }
+//           for (var i = 0; i < n; i++) {
+//               var child = frm.add_child('table_hsoa');
+//               child.planned_service_date = frappe.datetime.add_months(start_date_update, i * period_in_month);
+//               temp = child.planned_service_date;
+//           }
 
-    frm.doc.end_date = temp;
+//           frm.doc.end_date = temp;
 
-    frm.refresh_field('table_hsoa');
-    frm.refresh_field('end_date');
+//           frm.refresh_field('table_hsoa');
+//           frm.refresh_field('end_date');
 
-    period_in_month = default_period_in_month;
-}
+//           period_in_month = default_period_in_month;
+//       },
+
+
+
+//       start_date:function(frm) {
+
+//       var n = frm.doc.service_count;
+//       var start_date = frm.doc.start_date;
+//       var period_in_month = frm.doc.period_in_month;
+//       var default_period_in_month = frm.doc.period_in_month;
+//       var start_date_update=frappe.datetime.add_months(start_date,months=period_in_month);
+//       var temp = "";
+
+
+//       frm.clear_table('table_hsoa');
+
+//       for (var i = 0; i < n; i++) {
+//           var child = frm.add_child('table_hsoa');
+//           child.planned_service_date = frappe.datetime.add_months(start_date_update, i * period_in_month);
+//           temp = child.planned_service_date;
+//       }
+
+//       frm.doc.end_date = temp;
+
+//       frm.refresh_field('table_hsoa');
+//       frm.refresh_field('end_date');
+
+//       period_in_month = default_period_in_month;
+//   },
+
+
+
+
+//   service_count:function(frm) {
+
+//     var n = frm.doc.service_count;
+//     var start_date = frm.doc.start_date;
+//     var period_in_month = frm.doc.period_in_month;
+//     var default_period_in_month = frm.doc.period_in_month;
+//     var start_date_update=frappe.datetime.add_months(start_date,months=period_in_month);
+//     var temp = "";
+
+
+//     frm.clear_table('table_hsoa');
+
+//     for (var i = 0; i < n; i++) {
+//         var child = frm.add_child('table_hsoa');
+//         child.planned_service_date = frappe.datetime.add_months(start_date_update, i * period_in_month);
+//         temp = child.planned_service_date;
+//     }
+
+//     frm.doc.end_date = temp;
+
+//     frm.refresh_field('table_hsoa');
+//     frm.refresh_field('end_date');
+
+//     period_in_month = default_period_in_month;
+// }
 
 
 

@@ -14,6 +14,16 @@ frappe.ui.form.on("Machine", {
           };
         });
 
+        if (cur_frm.fields_dict.table_rvqo) {
+          // Hide the "Add Multiple Rows" button
+                  cur_frm.fields_dict['table_rvqo'].$wrapper.find(".grid-add-row").hide();
+              };
+
+        if (cur_frm.fields_dict.table_toxv) {
+                // Hide the "Add Multiple Rows" button
+                        cur_frm.fields_dict['table_toxv'].$wrapper.find(".grid-add-row").hide();
+            };
+
 
         frm.set_query("mc_type", function () {
           return {
@@ -35,6 +45,11 @@ frappe.ui.form.on("Machine", {
           };
         });
 
+
+      },
+
+
+      setup:function(frm){
 
         if(frm.is_new()) {
           var child=frm.add_child('item')
@@ -59,11 +74,7 @@ frappe.ui.form.on("Machine", {
           }
           frm.refresh_field('item');
         }
-      
-  
-      
-    
-	},
+      },
 
 
   mc_type:function(frm) {
@@ -77,9 +88,12 @@ frappe.ui.form.on("Machine", {
       };
       });
 
-        if (!frm.doc.mc_type) {
+       
             frm.set_value('model_name', '');
-        }
+        
+
+
+
         frm.fields_dict['item'].grid.get_field('model_name').get_query = function(doc, cdt, cdn) {
           return {
               filters: [
@@ -106,77 +120,73 @@ frappe.ui.form.on("Machine", {
 
 
 
-indoor_update: function(frm) {
-   if (frm.doc.item && frm.doc.item.length > 0) {
-        frm.doc.item[0].serial_no = frm.doc.indoor_serial_no;
-        frm.refresh_field('item');
-    }
-},
+      indoor_update: function(frm) {
+        if (frm.doc.item && frm.doc.item.length > 0) {
+              frm.doc.item[0].serial_no = frm.doc.indoor_serial_no;
+              frm.refresh_field('item');
+          }
+      },
 
 
 indoor_model: function(frm) {
   frm.events.indoor_model_update(frm);
-  if (!frm.doc.indoor_model) {
       frm.set_value('indoor_serial_no', '');
-  }
 },
 
 
 
-indoor_model_update: function(frm) {
- if (frm.doc.item && frm.doc.item.length > 0) {
-      frm.doc.item[0].model_name = frm.doc.indoor_model;
-      frm.refresh_field('item');
-  }
-},
+    indoor_model_update: function(frm) {
+    if (frm.doc.item && frm.doc.item.length > 0) {
+          frm.doc.item[0].model_name = frm.doc.indoor_model;
+          frm.refresh_field('item');
+      }
+    },
 
 
 
 
 
 
-outdoor_serial_no: function(frm) {
-  frm.events.outdoor_update(frm);
-},
-outdoor_update: function(frm) {
-  if (frm.doc.item && frm.doc.item.length > 0) {
-      frm.doc.item[1].serial_no = frm.doc.outdoor_serial_no;
-      frm.refresh_field('item'); 
-  }
-},
+    outdoor_serial_no: function(frm) {
+      frm.events.outdoor_update(frm);
+    },
+    outdoor_update: function(frm) {
+      if (frm.doc.item && frm.doc.item.length > 0) {
+          frm.doc.item[1].serial_no = frm.doc.outdoor_serial_no;
+          frm.refresh_field('item'); 
+      }
+    },
 
 
 
 outdoor_model: function(frm) {
   frm.events.outdoor_model_update(frm);
-  if (!frm.doc.outdoor_model) {
     frm.set_value('outdoor_serial_no', '');
-}
 },
 
 
 
-outdoor_model_update: function(frm) {
- if (frm.doc.item && frm.doc.item.length > 0) {
-      frm.doc.item[1].model_name = frm.doc.outdoor_model;
-      frm.refresh_field('item');
-  }
-},
+    outdoor_model_update: function(frm) {
+    if (frm.doc.item && frm.doc.item.length > 0) {
+          frm.doc.item[1].model_name = frm.doc.outdoor_model;
+          frm.refresh_field('item');
+      }
+    },
 
 
-tonnes: function(frm) {if (!frm.doc.model_name) {
+tonnes: function(frm) {
   frm.set_value('indoor_model', '');
   frm.events.tonnes_update(frm);
-}
+
 },
 
-tonnes_update: function(frm) {
-  if (frm.doc.item && frm.doc.item.length > 0) {
-      frm.doc.item[0].tonnes = frm.doc.tonnes;
-      frm.doc.item[1].tonnes = frm.doc.tonnes;
-      frm.refresh_field('item');
-  }
-},
+    tonnes_update: function(frm) {
+      if (frm.doc.item && frm.doc.item.length > 0) {
+          frm.doc.item[0].tonnes = frm.doc.tonnes;
+          frm.doc.item[1].tonnes = frm.doc.tonnes;
+          frm.refresh_field('item');
+      }
+    },
 
 
 
@@ -203,25 +213,75 @@ tonnes_update: function(frm) {
             },
         };
     });
-    if (!frm.doc.model_name) {
-      frm.set_value('indoor_model', '');
-      frm.set_value('outdoor_model', '');
-      frm.set_value('indoor_serial_no', '');
-      frm.set_value('outdoor_serial_no', '');
-  }
-  
+
+
+
+    frm.set_value('indoor_model', '');
+    frm.set_value('outdoor_model', '');
+    frm.set_value('indoor_serial_no', '');
+    frm.set_value('outdoor_serial_no', '');
 
   },
+  
+
+
+
+
+
+  
+
   brand_name: function(frm) {
-    if (!frm.doc.brand_name) {
+ 
         frm.set_value('mc_type', '');
-    }
+    
+},
+
+
+
+custom_add_warranty:function(frm){
+  frappe.route_options = {"doctype": "Warranty",
+  "customer_name": frm.doc.customer_name,
+  "machine":frm.doc.name
+  };
+  frappe.new_doc("Warranty");
 },
 
 
 
 
+custom_add_amc: function(frm) {
+frappe.route_options = {"doctype": "AMC",
+"customer_name": frm.doc.customer_name,
+};
+frappe.new_doc("AMC");
+},
+
+
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -298,6 +358,4 @@ refresh(frm) {
   //   frm.refresh_field('indoor_model');
   //   frm.refresh_field('outdoor_model');
   // },
-  
-})
-
+});

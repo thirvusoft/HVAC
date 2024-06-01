@@ -108,6 +108,8 @@ frappe.ui.form.on("Customer", {
     // },
 
 
+
+    
     custom_add_record:function(frm){
         let d = new frappe.ui.Dialog({
             title: 'Enter Machine details',
@@ -250,10 +252,42 @@ frappe.ui.form.on("Customer", {
         
         d.show();
         
+        d.fields_dict.add_brand_name.$input.on('change', function() {
+            d.set_values({'add_mc_type': ''}); 
+            console.log("************************")
+
+            d.set_values({'add_model_name': ''}); 
+            d.set_values({'add_indoor_model': ''}); 
+            d.set_values({'add_outdoor_model': ''}); 
+        });
+        d.fields_dict.add_mc_type.$input.on('change', function() {
+            d.set_values({'add_model_name': ''}); 
+
+            d.set_values({'add_indoor_model': ''}); 
+            d.set_values({'add_outdoor_model': ''}); 
+            console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+        });
+        d.fields_dict.add_model_name.$input.on('change', function() {
+            d.set_values({'add_indoor_model': ''}); 
+            d.set_values({'add_outdoor_model': ''}); 
+            console.log("^^^^^^^^^^^^^^^^^^^^^^^^^^^")
+        });
+        
+
+
     },
                 
 
 });
+
+
+
+
+
+
+
+
+
 
 
 frappe.ui.form.on("Service Records", {
