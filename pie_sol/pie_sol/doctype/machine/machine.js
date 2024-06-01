@@ -14,6 +14,16 @@ frappe.ui.form.on("Machine", {
           };
         });
 
+        if (cur_frm.fields_dict.table_rvqo) {
+          // Hide the "Add Multiple Rows" button
+                  cur_frm.fields_dict['table_rvqo'].$wrapper.find(".grid-add-row").hide();
+              };
+
+        if (cur_frm.fields_dict.table_toxv) {
+                // Hide the "Add Multiple Rows" button
+                        cur_frm.fields_dict['table_toxv'].$wrapper.find(".grid-add-row").hide();
+            };
+
 
         frm.set_query("mc_type", function () {
           return {
@@ -35,6 +45,11 @@ frappe.ui.form.on("Machine", {
           };
         });
 
+
+      },
+
+
+      setup:function(frm){
 
         if(frm.is_new()) {
           var child=frm.add_child('item')
@@ -73,9 +88,12 @@ frappe.ui.form.on("Machine", {
       };
       });
 
-        if (!frm.doc.mc_type) {
+       
             frm.set_value('model_name', '');
-        }
+        
+
+
+
         frm.fields_dict['item'].grid.get_field('model_name').get_query = function(doc, cdt, cdn) {
           return {
               filters: [
@@ -112,9 +130,7 @@ frappe.ui.form.on("Machine", {
 
 indoor_model: function(frm) {
   frm.events.indoor_model_update(frm);
-  if (!frm.doc.indoor_model) {
       frm.set_value('indoor_serial_no', '');
-  }
 },
 
 
@@ -145,9 +161,7 @@ indoor_model: function(frm) {
 
 outdoor_model: function(frm) {
   frm.events.outdoor_model_update(frm);
-  if (!frm.doc.outdoor_model) {
     frm.set_value('outdoor_serial_no', '');
-}
 },
 
 
@@ -160,10 +174,10 @@ outdoor_model: function(frm) {
     },
 
 
-tonnes: function(frm) {if (!frm.doc.model_name) {
+tonnes: function(frm) {
   frm.set_value('indoor_model', '');
   frm.events.tonnes_update(frm);
-}
+
 },
 
     tonnes_update: function(frm) {
@@ -199,98 +213,51 @@ tonnes: function(frm) {if (!frm.doc.model_name) {
             },
         };
     });
+
+
+
+    frm.set_value('indoor_model', '');
+    frm.set_value('outdoor_model', '');
+    frm.set_value('indoor_serial_no', '');
+    frm.set_value('outdoor_serial_no', '');
+
   },
   
 
 
-  custom_add_warranty:function(frm){
-    let d = new frappe.ui.Dialog({
-        title: 'Enter Machine Warranty details',
-        fields: [
-            {
-                label: 'Service Count',
-                fieldname: 'warranty_service_count',
-                fieldtype: 'Data',
-                options: '', 
-                reqd: true,
-            },
-            {
-                label: 'Period in Month',
-                fieldname: 'warranty_period_in_month',
-                fieldtype: 'Data',
-                options: '',
-                reqd: true, 
-                
-            },
-            {
-                label: 'Start Date',
-                fieldname: 'warranty_start_date',
-                fieldtype: 'Date',
-                options: '',
-                reqd: true, 
-            },
-            {
-                label: 'Contract Date',
-                fieldname: 'warranty_contract_date',
-                fieldtype: 'Date',
-                options:'',
-                reqd: true
-            },
-            {
-                label: 'Serviced By',
-                fieldname: 'warranty_serviced_by',
-                fieldtype: 'Select',
-                options: ['OZONE VAC','ACCSYS'],
-                reqd: true, 
-                
-            },
-            {
-                label: 'Enrolment',
-                fieldname: 'Warranty_enrolment',
-                fieldtype: 'Select',
-                options: ['DIRECT','DEALER'],
-                reqd: true, 
-                
-            },
-        ],
-        size: 'small', // small, large, extra-large 
-        primary_action_label: 'Submit',
-        primary_action(values) {
 
 
-            
 
-        // Create a new Machine document
-                frappe.call({
-                    method: 'pie_sol.pie_sol.utils.py.warranty.create_warranty',
-                    args: {
-                
-                    customer_name:frm.doc.customer_name,
-                    machine_name:frm.doc.name,
-                    warranty_period_in_month:values.warranty_period_in_month,
-                    warranty_service_count:values.warranty_service_count,
-                    warranty_start_date:values.warranty_start_date,
-                    warranty_contract_date:values.warranty_contract_date,
-                    warranty_serviced_by:values.warranty_serviced_by,
-                    Warranty_enrolment:values.Warranty_enrolment
-                    },
-                callback: function(response) {
-                    frm.refresh_fields('table_rvqo')
-                
-               
-            }
-        }); 
-   
-            d.hide();
-        }
-    });
+  
+
+  brand_name: function(frm) {
+ 
+        frm.set_value('mc_type', '');
     
-    d.show();
-    
-}
+},
+
+
+
+custom_add_warranty:function(frm){
+  frappe.route_options = {"doctype": "Warranty",
+  "customer_name": frm.doc.customer_name,
+  "machine":frm.doc.name
+  };
+  frappe.new_doc("Warranty");
+},
+
+
+
+
+custom_add_amc: function(frm) {
+frappe.route_options = {"doctype": "AMC",
+"customer_name": frm.doc.customer_name,
+};
+frappe.new_doc("AMC");
+},
+
+
 });
-
-
 
 
 

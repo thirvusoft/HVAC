@@ -121,7 +121,8 @@
    "fieldname": "machine",
    "fieldtype": "Table",
    "label": "Machine",
-   "options": "Machine Table"
+   "options": "Machine Table",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,

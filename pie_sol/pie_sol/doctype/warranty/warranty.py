@@ -24,20 +24,43 @@ class Warranty(Document):
             
             previous_actual_date = current_date  
 
-        if self.is_new():
+        mac = frappe.get_doc("Machine", self.machine)
+        mac.reload()
 
-            mac = frappe.get_doc("Machine", self.machine)
-            print(self.name,self.machine,"$$$$$$$$$$$$$$$$$$$$$$$$$")
-            mac.append("table_rvqo",
-               {
-                   'warranty_id':self.name,
-                   'start_date':self.start_date,
-                   'end_date':self.end_date,
-                   'service_count':self.service_count,
-                   'period_in_month':self.period_in_month,
+        if self.is_new():
+            mac.append("table_rvqo", {
+                'warranty_id': self.name,
+                'start_date': self.start_date,
+                'end_date': self.end_date,
+                'service_count': self.service_count,
+                'period_of_month': self.period_in_month,
+                'contract_date': self.contract_date,
+                'serviced_by': self.serviced_by,
+                'enrolment': self.enrolment,
             })
-            mac.refresh('table_rvqo')
+            mac.save()
+
+        else:
+            for row in mac.table_rvqo:
+                if row.warranty_id == self.name :
+                        row.start_date=self.start_date,
+                        row.end_date= self.end_date,
+                        row.service_count= self.service_count,
+                        row.period_of_month= self.period_in_month,
+                        row.contract_date= self.contract_date,
+                        row.serviced_by= self.serviced_by,
+                        row.enrolment= self.enrolment,
+            mac.save()
+            print('completed on save #############################33')
+
+
+
             
+
+
+
+
+
 
 
     def validate(self):

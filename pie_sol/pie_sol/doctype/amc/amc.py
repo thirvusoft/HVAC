@@ -22,10 +22,10 @@ class AMC(Document):
 			if current_date:
 				previous_actual_date = current_date  
 
-
+		mac=frappe.get_doc('Machine',self.machine)
+		mac.reload()
 		if self.is_new():
-			machine_id=frappe.get_doc('Machine',self.machine)
-			machine_id.append('table_toxv',{
+			mac.append('table_toxv',{
 				'amc_id':self.name,
 				'start_date':self.start_date,
 				'end_date':self.end_date,
@@ -35,6 +35,19 @@ class AMC(Document):
 				'serviced_by':self.serviced_by,
 				'enrolment':self.enrolment,
 			})
-			machine_id.save()
-
-			print(self.name,self.service_count,self.start_date,self.end_date,'**************************')
+			mac.save()
+			print("completed ^^^^^^^^^^^^^^^^^^^^^")
+		else:
+			for row in mac.table_toxv:
+				if row.amc_id == self.name :
+					row.start_date=self.start_date,
+					row.end_date=self.end_date,
+					row.service_count=self.service_count,
+					row.period_of_month=self.period_in_month,
+					row.contract_date=self.contract_date,
+					row.serviced_by=self.serviced_by,
+					row.enrolment=self.enrolment,
+				
+			mac.save()
+			print("completed &&&&&&&&&&&&&&&&&&&&&&&")
+            
