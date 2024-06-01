@@ -174,8 +174,9 @@ outdoor_model: function(frm) {
     },
 
 
+
+    
 tonnes: function(frm) {
-  frm.set_value('indoor_model', '');
   frm.events.tonnes_update(frm);
 
 },
