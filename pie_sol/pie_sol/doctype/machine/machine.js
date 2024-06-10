@@ -5,6 +5,14 @@ frappe.ui.form.on("Machine", {
 
 
 	refresh(frm) {
+
+
+
+    // cur_frm.fields_dict['table_rvqo'].$wrapper.find(".grid-add-row")[0].style.display="none";
+
+
+    // cur_frm.fields_dict['table_rvqo'].$wrapper.find(".grid-add-row")[0].style.display="none";
+
         frm.set_query("brand_name", function () {
           return {
             filters: {
@@ -14,15 +22,17 @@ frappe.ui.form.on("Machine", {
           };
         });
 
-        if (cur_frm.fields_dict.table_rvqo) {
-          // Hide the "Add Multiple Rows" button
-                  cur_frm.fields_dict['table_rvqo'].$wrapper.find(".grid-add-row").hide();
-              };
+        // if (cur_frm.fields_dict.table_toxv) {
+        //   // Hide the "Add Multiple Rows" button
+        //           cur_frm.fields_dict['table_toxv'].$wrapper.find(".grid-add-row").hide();
+        //       };
 
-        if (cur_frm.fields_dict.table_toxv) {
-                // Hide the "Add Multiple Rows" button
-                        cur_frm.fields_dict['table_toxv'].$wrapper.find(".grid-add-row").hide();
-            };
+        // if (cur_frm.fields_dict.table_rvqo) {
+        //         // Hide the "Add Multiple Rows" button
+        //           cur_frm.fields_dict['table_rvqo'].$wrapper.find(".grid-add-row").hide();
+        //     };
+
+        
 
 
         frm.set_query("mc_type", function () {
@@ -239,6 +249,8 @@ tonnes: function(frm) {
 
 
 
+
+
 custom_add_warranty:function(frm){
   frappe.route_options = {"doctype": "Warranty",
   "customer_name": frm.doc.customer_name,
@@ -251,7 +263,12 @@ custom_add_warranty:function(frm){
 
 
 custom_add_amc: function(frm) {
-frappe.route_options = {"doctype": "AMC"
+
+frappe.route_options = {"doctype": "AMC",
+"customer_name": frm.doc.customer_name,
+
+"machine_field":frm.doc.name
+
 };
 frappe.new_doc("AMC");
 },

@@ -21,7 +21,12 @@
   "end_date",
   "enrolment",
   "section_break_uwnh",
-  "table_hsoa"
+  "table_hsoa",
+  "amended_from",
+  "create_maintainenance",
+  "tab_2_tab",
+  "maintenance_section",
+  "table_vube"
  ],
  "fields": [
   {
@@ -125,11 +130,42 @@
    "fieldname": "table_hsoa",
    "fieldtype": "Table",
    "options": "Service Date"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Warranty",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "create_maintainenance",
+   "fieldtype": "Button",
+   "label": "Create Maintenance Visit"
+  },
+  {
+   "fieldname": "tab_2_tab",
+   "fieldtype": "Tab Break",
+   "label": "Maintenance "
+  },
+  {
+   "fieldname": "maintenance_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "table_vube",
+   "fieldtype": "Table",
+   "options": "Maintenance Records"
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2024-05-30 18:10:01.369642",
+ "modified": "2024-06-08 14:31:11.319499",
  "modified_by": "Administrator",
  "module": "pie-sol",
  "name": "Warranty",

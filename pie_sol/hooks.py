@@ -142,8 +142,13 @@ doc_events = {
     "after_insert":"pie_sol.pie_sol.utils.py.customer.customerservice",
     "before_save":"pie_sol.pie_sol.utils.py.customer.customer_update",
 
-	}
+	},
 
+    "Maintenance Visit":{
+    "after_insert":"pie_sol.pie_sol.utils.py.maintenance_visit.warranty",
+    "on_cancel":"pie_sol.pie_sol.utils.py.maintenance_visit.warranty_cancel"
+    }
+    
 }
 
 # Scheduled Tasks

@@ -1,0 +1,32 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-06-03 17:25:42.523579",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "link_wdce"
+ ],
+ "fields": [
+  {
+   "fieldname": "link_wdce",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Maintenance Visit Id",
+   "options": "Maintenance Visit"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-06-08 14:29:16.450937",
+ "modified_by": "Administrator",
+ "module": "pie-sol",
+ "name": "Maintenance Records",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

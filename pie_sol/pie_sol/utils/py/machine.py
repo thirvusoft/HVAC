@@ -123,7 +123,7 @@ def tableentry(doc,events):
         # })
 
 @frappe.whitelist()
-def create_machine(customer_name,brand_name, mc_type, model_name, indoor_model, outdoor_model, tonnes, date):
+def create_machine(customer_name,brand_name, mc_type, model_name, indoor_model, outdoor_model, tonnes, outdoor_serial_no,date):
     machine = frappe.new_doc("Machine")
     machine.customer_name=customer_name
     machine.brand_name = brand_name
@@ -132,6 +132,7 @@ def create_machine(customer_name,brand_name, mc_type, model_name, indoor_model, 
     machine.indoor_model = indoor_model
     machine.outdoor_model = outdoor_model
     machine.tonnes = tonnes
+    machine.outdoor_serial_no= outdoor_serial_no
     machine.installation_date = date
     # Set more fields here as needed
     machine.save()
