@@ -184,8 +184,9 @@ outdoor_model: function(frm) {
     },
 
 
+
+
 tonnes: function(frm) {
-  frm.set_value('indoor_model', '');
   frm.events.tonnes_update(frm);
 
 },
@@ -262,10 +263,12 @@ custom_add_warranty:function(frm){
 
 
 custom_add_amc: function(frm) {
+
 frappe.route_options = {"doctype": "AMC",
 "customer_name": frm.doc.customer_name,
 
 "machine_field":frm.doc.name
+
 };
 frappe.new_doc("AMC");
 },
