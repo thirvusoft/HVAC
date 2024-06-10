@@ -8,6 +8,7 @@
  "field_order": [
   "customer_name",
   "machine",
+  "machine_field",
   "contract_id",
   "type",
   "status",
@@ -23,7 +24,9 @@
   "create_schedule",
   "test",
   "section_break_iggz",
-  "table_ibgb"
+  "table_ibgb",
+  "amended_from",
+  "create_maintenance_visit"
  ],
  "fields": [
   {
@@ -121,9 +124,9 @@
   {
    "fieldname": "machine",
    "fieldtype": "Table",
+   "hidden": 1,
    "label": "Machine",
-   "options": "Machine Table",
-   "reqd": 1
+   "options": "Machine Table"
   },
   {
    "fieldname": "create_schedule",
@@ -136,11 +139,33 @@
    "fieldtype": "Check",
    "hidden": 1,
    "label": "test"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "AMC",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "machine_field",
+   "fieldtype": "Link",
+   "label": "Machine",
+   "options": "Machine"
+  },
+  {
+   "fieldname": "create_maintenance_visit",
+   "fieldtype": "Button",
+   "label": "Create Maintenance Visit"
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2024-06-01 10:29:40.717927",
+ "modified": "2024-06-07 17:49:01.835728",
  "modified_by": "Administrator",
  "module": "pie-sol",
  "name": "AMC",

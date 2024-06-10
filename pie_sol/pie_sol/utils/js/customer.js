@@ -1,8 +1,15 @@
 frappe.ui.form.on("Customer", {
     refresh:function(frm){
                 if (cur_frm.fields_dict.custom_records) {
-            // Hide the "Add Multiple Rows" button
                     cur_frm.fields_dict['custom_records'].$wrapper.find(".grid-add-row").hide();
+                };
+
+                if (cur_frm.fields_dict.custom_warranty_records) {
+                    cur_frm.fields_dict['custom_warranty_records'].$wrapper.find(".grid-add-row").hide();
+                };
+
+                if (cur_frm.fields_dict.custom_amc_records) {
+                    cur_frm.fields_dict['custom_amc_records'].$wrapper.find(".grid-add-row").hide();
                 };
             
 
@@ -212,6 +219,13 @@ frappe.ui.form.on("Customer", {
                     }
                 },
                 {
+                    label: 'Outdoor serial number',
+                    fieldname: 'add_outdoor_serial_no',
+                    fieldtype: 'Data',
+                    reqd: true, 
+                    
+                },
+                {
                     label: 'Date',
                     fieldname: 'add_date',
                     fieldtype: 'Date',
@@ -237,6 +251,7 @@ frappe.ui.form.on("Customer", {
                         indoor_model: values.add_indoor_model,
                         outdoor_model: values.add_outdoor_model,
                         tonnes: values.add_tonnes,
+                        outdoor_serial_no:values.add_outdoor_serial_no,
                         date:values.add_date
                         },
                     callback: function(response) {
@@ -254,7 +269,6 @@ frappe.ui.form.on("Customer", {
         
         d.fields_dict.add_brand_name.$input.on('change', function() {
             d.set_values({'add_mc_type': ''}); 
-            console.log("************************")
 
             d.set_values({'add_model_name': ''}); 
             d.set_values({'add_indoor_model': ''}); 
@@ -265,12 +279,10 @@ frappe.ui.form.on("Customer", {
 
             d.set_values({'add_indoor_model': ''}); 
             d.set_values({'add_outdoor_model': ''}); 
-            console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
         });
         d.fields_dict.add_model_name.$input.on('change', function() {
             d.set_values({'add_indoor_model': ''}); 
-            d.set_values({'add_outdoor_model': ''}); 
-            console.log("^^^^^^^^^^^^^^^^^^^^^^^^^^^")
+            d.set_values({'add_outdoor_model': ''});
         });
         
 

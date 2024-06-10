@@ -35,6 +35,7 @@
   "warrantyamc_tab",
   "warranty_records_section",
   "table_rvqo",
+  "amc_tab",
   "amc_records_section",
   "table_toxv"
  ],
@@ -68,7 +69,8 @@
    "fieldname": "mc_warranty",
    "fieldtype": "Select",
    "label": "MC warranty",
-   "options": "0\n1\n2\n3\n4\n5"
+   "options": "6\n12\n18\n24\n30\n36\n42\n48\n54\n60",
+   "reqd": 1
   },
   {
    "fieldname": "installed_at",
@@ -199,7 +201,7 @@
   {
    "fieldname": "warrantyamc_tab",
    "fieldtype": "Tab Break",
-   "label": "Warranty & AMC"
+   "label": "Warranty"
   },
   {
    "fieldname": "table_rvqo",
@@ -226,11 +228,16 @@
    "fieldname": "has_warranty",
    "fieldtype": "Check",
    "label": "Has Warranty"
+  },
+  {
+   "fieldname": "amc_tab",
+   "fieldtype": "Tab Break",
+   "label": "AMC"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-30 19:54:33.265226",
+ "modified": "2024-06-10 13:20:55.339703",
  "modified_by": "Administrator",
  "module": "pie-sol",
  "name": "Machine",
