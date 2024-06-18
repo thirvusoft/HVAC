@@ -125,7 +125,9 @@ class AMC(Document):
 			customer.save()
 
 
+			
+			mv=frappe.db.get_list("Maintenance Visit",{'custom_machine_id':self.machine_field})
 
-			for row in self.custom_label:
-				frappe.delete_doc('Maintenance Visit', row.link_wdce)
-				
+			for doc in mv:
+				frappe.delete_doc("Maintenance Visit",doc['name'])
+			

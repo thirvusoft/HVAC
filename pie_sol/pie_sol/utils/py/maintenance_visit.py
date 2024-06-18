@@ -60,6 +60,22 @@ def warranty_maintenance(machine, warranty_name, customer_name, table_hsoa):
             'custom_serial_number': machine2.outdoor_serial_no
         })
         print("^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
+
+        customer=frappe.get_doc("Customer",customer_name)
+
+        temp = frappe.get_all('Pincode', filters={"pincode": customer.territory},fields=['parent'])
+
+        temp1=""
+        for entry in temp:
+            temp1=entry['parent']
+            break
+        print(temp1,"$$$$$$$$$$$$$$$$$$$$$$$$$$")
+        war_visit.custom_technician=temp1
+
+
+
+
+
         war_visit.save()
 
 
@@ -105,6 +121,18 @@ def amc_maintenance(machine, warranty_name, customer_name, table_hsoa):
             'item_name': machine2.outdoor_model,
             'custom_serial_number': machine2.outdoor_serial_no
         })
+
+        customer=frappe.get_doc("Customer",customer_name)
+
+        temp = frappe.get_all('Pincode', filters={"pincode": customer.territory},fields=['parent'])
+
+        temp1=""
+        for entry in temp:
+            temp1=entry['parent']
+            break
+        print(temp1,"$$$$$$$$$$$$$$$$$$$$$$$$$$")
+        war_visit.custom_technician=temp1
+
         print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
         war_visit.save()
 

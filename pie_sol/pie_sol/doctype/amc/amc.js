@@ -63,7 +63,7 @@ frappe.ui.form.on("AMC", {
       if (period_in_month % n == 0) {
           for (var i = 0; i < n; i++) {
               var child = frm.add_child('table_ibgb');
-              child.planned_service_date = frappe.datetime.add_months(start_date, i * interval);
+              child.planned_service_date = frappe.datetime.add_months(start_date_update, i * interval);
               temp = child.planned_service_date;
               console.log(temp)
           }
