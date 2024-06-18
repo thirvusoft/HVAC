@@ -96,7 +96,7 @@ def get_data(filters):
         mv.custom_warrantyamc AS warranty_amc_id,
         mv.customer AS customer,
         mv.contact_mobile AS phone,
-        mv.custom_pincode AS pincode,
+        mv.custom_pincodes AS pincode,
         mv.maintenance_type AS maintenance_visit_type,
         m.brand_name AS brand,
         m.model_name AS model_name,
@@ -152,7 +152,7 @@ def get_data(filters):
         conditions.append(f"mv.customer = '{filters.get('customer_name')}'")
 
     if filters.get('pincode'):
-        conditions.append(f"mv.custom_pincode = '{filters.get('pincode')}'")
+        conditions.append(f"mv.custom_pincodes = '{filters.get('pincode')}'")
 
     if filters.get('maintenance_visit_type'):
         conditions.append(f"mv.maintenance_type = '{filters.get('maintenance_visit_type')}'")
