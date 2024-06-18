@@ -9,13 +9,13 @@ frappe.ui.form.on("Warranty", {
 
         var button = frm.get_field('create_maintainenance').$wrapper.find('button');
         button.css('display', 'none');
-        console.log("refresh")
+
 
         if (frm.doc.docstatus == 1 && frm.doc.custom_maintenance_visit_created==0 ) {
 
           var button = frm.get_field('create_maintainenance').$wrapper.find('button');
           button.css('display', 'block');
-          console.log("after save")
+
           
           
 
@@ -42,7 +42,7 @@ frappe.ui.form.on("Warranty", {
       var default_period_in_month = frm.doc.period_in_month;
       var start_date_update = frappe.datetime.add_months(start_date, months=interval);
       var temp = "";
-      console.log(n, start_date, period_in_month, start_date_update, temp, interval);
+      
   
       frm.clear_table('table_hsoa');
   
@@ -51,7 +51,7 @@ frappe.ui.form.on("Warranty", {
           for (var i = 0; i < n; i++) {
               var child = frm.add_child('table_hsoa');
               child.planned_service_date = frappe.datetime.add_months(start_date_update, i * interval);
-              console.log(child.planned_service_date);
+              
               temp = child.planned_service_date;
           }
   
@@ -79,7 +79,6 @@ frappe.ui.form.on("Warranty", {
         frm.clear_table('table_hsoa');
     
         for (var i = 1; i <= service_count; i++) { 
-          console.log(days_interval)
             var child = frm.add_child('table_hsoa');
             child.planned_service_date = frappe.datetime.add_days(start_date, i * days_interval);
             temp = child.planned_service_date;
@@ -158,20 +157,19 @@ create_maintainenance: function(frm) {
           },
           callback: function(response) {
               frm.refresh_fields('table_hsoa');
-              console.log("rh")
 
-              console.log(frm.doc.custom_maintenance_visit_created)
+              // console.log(frm.doc.custom_maintenance_visit_created)
 
               
-              console.log(frm.doc.custom_maintenance_visit_created)
-              // Save the form
+              // console.log(frm.doc.custom_maintenance_visit_created)
+              // // Save the form
              
 
-              // frm.set_value('custom_maintenance_visit_created', 1);
-              // frm.save()
-              // frm.refresh_fields('custom_maintenance_visit_created')
+              // // frm.set_value('custom_maintenance_visit_created', 1);
+              // // frm.save()
+              // // frm.refresh_fields('custom_maintenance_visit_created')
 
-              console.log(frm.doc.custom_maintenance_visit_created)
+              // console.log(frm.doc.custom_maintenance_visit_created)
 
 
 
