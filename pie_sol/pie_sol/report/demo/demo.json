@@ -1,0 +1,27 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2024-06-19 13:10:43.638179",
+ "disabled": 1,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letterhead": null,
+ "modified": "2024-06-19 14:33:21.948109",
+ "modified_by": "Administrator",
+ "module": "pie-sol",
+ "name": "demo",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Machine",
+ "reference_report": "",
+ "report_name": "demo",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ]
+}
