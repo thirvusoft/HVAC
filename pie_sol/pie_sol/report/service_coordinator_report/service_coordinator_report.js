@@ -13,6 +13,14 @@ frappe.query_reports["Service Coordinator Report"] = {
             "width": "80"
         },
         {
+            "fieldname": "maintenance_visit_type",
+            "label": __("Maintenance Visit Type"),
+            "fieldtype": "Select",
+            "options": [" " , "Warranty", "AMC", "Unplanned"],
+            "reqd": 1,
+            "width": "80"
+        },
+        {
             "fieldname": "technician_name",
             "label": __("Technician Name"),
             "fieldtype": "Link",
@@ -33,13 +41,6 @@ frappe.query_reports["Service Coordinator Report"] = {
             "options": "Territory",  
             "width": "80"
         },
-        {
-            "fieldname": "maintenance_visit_type",
-            "label": __("Maintenance Visit Type"),
-            "fieldtype": "Select",
-            "options": [" " , "Warranty", "AMC", "Unplanned"],
-            "reqd": 1,
-            "width": "80"
-        },
+
     ]
 };
