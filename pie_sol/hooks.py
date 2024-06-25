@@ -11,7 +11,11 @@ app_license = "mit"
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/pie_sol/css/pie_sol.css"
-# app_include_js = "/assets/pie_sol/js/pie_sol.js"
+app_include_js = [
+    "/assets/js/jquery.min.js",  # Ensure jQuery is included first if not already
+    # "pie_sol/utils/js/mv_calendar.js"
+    ]
+
 
 # include js, css files in header of web template
 # web_include_css = "/assets/pie_sol/css/pie_sol.css"
@@ -34,7 +38,7 @@ doctype_js = {
 }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 doctype_tree_js = {"Item Group":["/pie_sol/utils/js/item_group.js","/pie_sol/utils/js/itemtable.js"],}
-# doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
+doctype_calendar_js = {"Maintenance Visit" : "pie_sol/utils/js/mv_calendar.js"}
 
 # Svg Icons
 # ------------------

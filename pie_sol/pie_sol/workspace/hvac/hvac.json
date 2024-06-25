@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"_mzX6W5lcX\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">HVAC</span>\",\"col\":12}},{\"id\":\"aSfjLkX9bV\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Customer\",\"col\":5}},{\"id\":\"C9XwQwFQaa\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Active Customer\",\"col\":5}},{\"id\":\"ME_jE8lU1U\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Machine\",\"col\":5}},{\"id\":\"GCTaG9GNj-\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Entries\",\"col\":5}},{\"id\":\"jiGycbQI2E\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Warranty\",\"col\":5}},{\"id\":\"_M2og7zKMd\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Warranty\",\"col\":5}},{\"id\":\"W30P4X3JQ1\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"AMC\",\"col\":5}},{\"id\":\"VxxU-4Pu5B\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total AMC\",\"col\":5}},{\"id\":\"xlIcjXK2N1\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Masters</b></span>\",\"col\":12}},{\"id\":\"UmI4w6pmQm\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Brand & Model\",\"col\":12}},{\"id\":\"ifRnzKrHjW\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item \",\"col\":12}},{\"id\":\"Sf4thzl5c9\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Assign Technician\",\"col\":12}},{\"id\":\"YV0AwA9tHM\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Calendar View\",\"col\":12}},{\"id\":\"gd4Y8ADHrN\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":4}}]",
+ "content": "[{\"id\":\"_mzX6W5lcX\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">HVAC</span>\",\"col\":12}},{\"id\":\"aSfjLkX9bV\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Customer\",\"col\":5}},{\"id\":\"C9XwQwFQaa\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Active Customer\",\"col\":5}},{\"id\":\"ME_jE8lU1U\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Machine\",\"col\":5}},{\"id\":\"GCTaG9GNj-\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Entries\",\"col\":5}},{\"id\":\"jiGycbQI2E\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Warranty\",\"col\":5}},{\"id\":\"_M2og7zKMd\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Warranty\",\"col\":5}},{\"id\":\"W30P4X3JQ1\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"AMC\",\"col\":5}},{\"id\":\"VxxU-4Pu5B\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total AMC\",\"col\":5}},{\"id\":\"xlIcjXK2N1\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Masters</b></span>\",\"col\":12}},{\"id\":\"UmI4w6pmQm\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Brand & Model\",\"col\":12}},{\"id\":\"ifRnzKrHjW\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item \",\"col\":12}},{\"id\":\"Sf4thzl5c9\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Assign Technician\",\"col\":12}},{\"id\":\"5c8U-9mbyQ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Calendar view\",\"col\":3}},{\"id\":\"28kyjwRVRX\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports</b></span>\",\"col\":12}},{\"id\":\"XO3ZzOUsWu\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Service Coordinator Report\",\"col\":7}},{\"id\":\"W9wvAUgmZ6\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Schedule Confirmation Report\",\"col\":7}}]",
  "creation": "2024-05-14 17:33:56.219969",
  "custom_blocks": [],
  "docstatus": 0,
@@ -21,39 +21,10 @@
    "link_type": "Report",
    "onboard": 0,
    "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Reports",
-   "link_count": 2,
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 1,
-   "label": "Service Coordinator Report",
-   "link_count": 0,
-   "link_to": "Service Coordinator Report",
-   "link_type": "Report",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Schedule Confirmation Report",
-   "link_count": 0,
-   "link_to": "Schedule Confirmation Report",
-   "link_type": "Report",
-   "onboard": 0,
-   "type": "Link"
   }
  ],
- "modified": "2024-06-19 15:41:08.341320",
- "modified_by": "sathyad@thirvusoft.in",
+ "modified": "2024-06-20 16:14:31.311974",
+ "modified_by": "Administrator",
  "module": "pie-sol",
  "name": "HVAC",
  "number_cards": [
@@ -78,9 +49,23 @@
  "parent_page": "",
  "public": 1,
  "quick_lists": [],
- "roles": [],
+ "roles": [
+  {
+   "role": "Service Coordinator"
+  },
+  {
+   "role": "technician"
+  }
+ ],
  "sequence_id": 28.0,
  "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Service Coordinator Report",
+   "link_to": "Service Coordinator Report",
+   "type": "Report"
+  },
   {
    "color": "Grey",
    "doc_view": "List",
@@ -92,16 +77,22 @@
   {
    "color": "Grey",
    "doc_view": "List",
-   "label": "Assign Technician",
-   "link_to": "Assign Technician",
-   "stats_filter": "[]",
-   "type": "DocType"
+   "label": "Schedule Confirmation Report",
+   "link_to": "Schedule Confirmation Report",
+   "type": "Report"
   },
   {
    "color": "Grey",
    "doc_view": "List",
-   "label": "Calendar View",
-   "link_to": "Calendar View",
+   "label": "Calendar view",
+   "type": "URL",
+   "url": "/app/maintenance-visit/view/calendar/Technician%20Today%20Schedule"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Assign Technician",
+   "link_to": "Assign Technician",
    "stats_filter": "[]",
    "type": "DocType"
   },

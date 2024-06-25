@@ -1,0 +1,251 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2024-06-24 17:12:54.656407",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "dealer",
+  "customer_name",
+  "customer_phone_number",
+  "customer_pincode",
+  "customer_address",
+  "column_break_vrhx",
+  "name_of_complaint",
+  "action_taken",
+  "call_attended_by_name",
+  "brand",
+  "mc_type",
+  "model_name",
+  "section_break_vngl",
+  "table_fbbp",
+  "call_details_section",
+  "call_attended_date",
+  "call_attended_time",
+  "column_break_dcgm",
+  "work_completed_date",
+  "work_completed_time",
+  "section_break_khbn",
+  "test_measurements_as_applicable",
+  "voltage",
+  "total_amps",
+  "suction_pres_kgcm_or_psig",
+  "discharge_press_kgcm_or_psig",
+  "column_break_iefj",
+  "compressor__amps",
+  "return_air_canvas_temp_fc",
+  "ambient_temp_fc",
+  "room_temp_fc",
+  "section_break_pjdm",
+  "materials_used",
+  "chargable"
+ ],
+ "fields": [
+  {
+   "fieldname": "dealer",
+   "fieldtype": "Data",
+   "label": "Dealer"
+  },
+  {
+   "fieldname": "customer_name",
+   "fieldtype": "Link",
+   "label": "Customer Name",
+   "options": "Customer"
+  },
+  {
+   "fetch_from": "customer_name.custom_mobile_number1",
+   "fieldname": "customer_phone_number",
+   "fieldtype": "Data",
+   "label": "Customer Phone Number"
+  },
+  {
+   "fetch_from": "customer_name.territory",
+   "fieldname": "customer_pincode",
+   "fieldtype": "Data",
+   "label": "Customer Pincode"
+  },
+  {
+   "fetch_from": "customer_name.custom_address",
+   "fieldname": "customer_address",
+   "fieldtype": "Small Text",
+   "label": "Customer Address"
+  },
+  {
+   "fieldname": "column_break_vrhx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "FSR.####"
+  },
+  {
+   "fieldname": "name_of_complaint",
+   "fieldtype": "Data",
+   "label": "Name of Complaint"
+  },
+  {
+   "fieldname": "action_taken",
+   "fieldtype": "Small Text",
+   "label": "Action Taken"
+  },
+  {
+   "fieldname": "call_attended_by_name",
+   "fieldtype": "Data",
+   "label": "Call Attended by Name"
+  },
+  {
+   "fieldname": "brand",
+   "fieldtype": "Link",
+   "label": "Brand",
+   "options": "Item Group"
+  },
+  {
+   "fieldname": "mc_type",
+   "fieldtype": "Link",
+   "label": "MC Type",
+   "options": "Item Group"
+  },
+  {
+   "fieldname": "model_name",
+   "fieldtype": "Link",
+   "label": "Model Name",
+   "options": "Item Group"
+  },
+  {
+   "fieldname": "section_break_vngl",
+   "fieldtype": "Section Break",
+   "label": "Model and Serial Table"
+  },
+  {
+   "fieldname": "table_fbbp",
+   "fieldtype": "Table",
+   "options": "Model and Serial Table"
+  },
+  {
+   "fieldname": "call_details_section",
+   "fieldtype": "Section Break",
+   "label": "Call Details"
+  },
+  {
+   "fieldname": "call_attended_date",
+   "fieldtype": "Date",
+   "label": "Call Attended Date"
+  },
+  {
+   "fieldname": "call_attended_time",
+   "fieldtype": "Time",
+   "label": "Call Attended Time"
+  },
+  {
+   "fieldname": "column_break_dcgm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "work_completed_date",
+   "fieldtype": "Date",
+   "label": "Work Completed Date"
+  },
+  {
+   "fieldname": "work_completed_time",
+   "fieldtype": "Time",
+   "label": "Work Completed Time"
+  },
+  {
+   "fieldname": "section_break_khbn",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "test_measurements_as_applicable",
+   "fieldtype": "Data",
+   "label": "Test Measurements (As Applicable)"
+  },
+  {
+   "fieldname": "column_break_iefj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "voltage",
+   "fieldtype": "Data",
+   "label": "Voltage"
+  },
+  {
+   "fieldname": "total_amps",
+   "fieldtype": "Data",
+   "label": "Total Amps"
+  },
+  {
+   "fieldname": "suction_pres_kgcm_or_psig",
+   "fieldtype": "Data",
+   "label": "Suction Pres kgCm or PSIG"
+  },
+  {
+   "fieldname": "discharge_press_kgcm_or_psig",
+   "fieldtype": "Data",
+   "label": "Discharge Press kgCm or PSIG"
+  },
+  {
+   "fieldname": "compressor__amps",
+   "fieldtype": "Data",
+   "label": "Compressor  Amps"
+  },
+  {
+   "fieldname": "return_air_canvas_temp_fc",
+   "fieldtype": "Data",
+   "label": "Return Air/ Canvas Temp F/C"
+  },
+  {
+   "fieldname": "ambient_temp_fc",
+   "fieldtype": "Data",
+   "label": "Ambient Temp F/C"
+  },
+  {
+   "fieldname": "room_temp_fc",
+   "fieldtype": "Data",
+   "label": "Room Temp F/C"
+  },
+  {
+   "fieldname": "section_break_pjdm",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "materials_used",
+   "fieldtype": "Table",
+   "label": "Materials Used",
+   "options": "Materials Used"
+  },
+  {
+   "default": "0",
+   "fieldname": "chargable",
+   "fieldtype": "Check",
+   "label": "Chargable"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-06-25 12:52:10.486900",
+ "modified_by": "Administrator",
+ "module": "pie-sol",
+ "name": "Field Service Records",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
