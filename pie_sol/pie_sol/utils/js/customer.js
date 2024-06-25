@@ -183,6 +183,13 @@ frappe.ui.form.on("Customer", {
                     reqd: true
                 },
                 {
+                    label: 'MC Warranty',
+                    fieldname: 'mc_warranty',
+                    fieldtype: 'Select',
+                    options:['6','12','18','24','30','36','42','48','54','60'],
+                    reqd: true
+                },
+                {
                     label: 'Indoor model',
                     fieldname: 'add_indoor_model',
                     fieldtype: 'Link',
@@ -251,6 +258,7 @@ frappe.ui.form.on("Customer", {
                         indoor_model: values.add_indoor_model,
                         outdoor_model: values.add_outdoor_model,
                         tonnes: values.add_tonnes,
+                        mc_warranty:values.mc_warranty,
                         outdoor_serial_no:values.add_outdoor_serial_no,
                         date:values.add_date
                         },

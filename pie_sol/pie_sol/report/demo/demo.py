@@ -3,7 +3,6 @@ from frappe.utils import flt
 
 def execute(filters=None):
     columns, data = [], []
-    print(filters,"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
     columns = get_columns(filters)
     data = get_data(filters)
     
@@ -182,6 +181,8 @@ def get_debit_note(party, from_date, to_date):
         FROM `tabPurchase Invoice` 
         WHERE supplier IN %s AND posting_date BETWEEN %s AND %s AND is_return = 1
     """, (tuple(party), from_date, to_date))
+
+    
 
     return flt(debit_note[0][0]) if debit_note and debit_note[0][0] else 0.0
 
