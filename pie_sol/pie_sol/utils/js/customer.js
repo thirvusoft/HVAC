@@ -190,24 +190,6 @@ frappe.ui.form.on("Customer", {
                     reqd: true
                 },
                 {
-                    label: 'Indoor model',
-                    fieldname: 'add_indoor_model',
-                    fieldtype: 'Link',
-                    options: 'Item',
-                    reqd: true, 
-                    get_query: function() {
-                        
-                        return {
-                            
-                        filters: {
-                                item_group:d.get_value('add_brand_name'),
-                                custom_mc_type:d.get_value('add_mc_type'),
-                                custom_model:d.get_value('add_model_name')
-                            }
-                        };
-                    }
-                },
-                {
                     label: 'Outdoor model',
                     fieldname: 'add_outdoor_model',
                     fieldtype: 'Link',
@@ -218,6 +200,7 @@ frappe.ui.form.on("Customer", {
                         return {
                             
                         filters: {
+                            custom_model_type:"Outdoor Model",
                             item_group:d.get_value('add_brand_name'),
                             custom_mc_type:d.get_value('add_mc_type'),
                             custom_model:d.get_value('add_model_name')
@@ -255,7 +238,6 @@ frappe.ui.form.on("Customer", {
                         brand_name: values.add_brand_name,
                         mc_type: values.add_mc_type,
                         model_name: values.add_model_name,
-                        indoor_model: values.add_indoor_model,
                         outdoor_model: values.add_outdoor_model,
                         tonnes: values.add_tonnes,
                         mc_warranty:values.mc_warranty,

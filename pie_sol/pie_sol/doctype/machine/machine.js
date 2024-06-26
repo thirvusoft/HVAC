@@ -59,11 +59,12 @@ frappe.ui.form.on("Machine", {
       },
 
 
-      setup:function(frm){
-
+      onload:function(frm){
+        console.log("######")
         if(frm.is_new()) {
+          frm.refresh_field();
           var child=frm.add_child('item')
-          
+          console.log("*****")
 
           
 
@@ -72,22 +73,20 @@ frappe.ui.form.on("Machine", {
           for(var i = 0; i < 9; i++) {
               if (i==0){
 
-                child.model_type='Indoor Serial No'
-              }
-              if (i==1){
-
-                child.model_type = 'Outdoor Serial No';
+                child.model_type='Indoor Model'
               }
 
               var child=frm.add_child('item')
-              child.model_type='Indoor Serial No';
+              child.model_type='Indoor Model';
           }
           frm.refresh_field('item');
         }
+       
       },
 
 
   mc_type:function(frm) {
+    console.log("mctype")
     frm.set_query("model_name", function () {
       return {
         filters: {
@@ -105,8 +104,10 @@ frappe.ui.form.on("Machine", {
 
 
         frm.fields_dict['item'].grid.get_field('model_name').get_query = function(doc, cdt, cdn) {
+          console.log("364")
           return {
               filters: [
+                  ['Item','custom_model_type','=','Indoor Model'],
                   ['Item', 'item_group', '=', frm.doc.brand_name],
                   ['Item', 'custom_mc_type', '=', frm.doc.mc_type],
                   ['Item', 'custom_model', '=', frm.doc.model_name]
@@ -118,86 +119,83 @@ frappe.ui.form.on("Machine", {
 
   },
 
-
-
-
   
 
 
-  indoor_serial_no: function(frm) {
-    frm.events.indoor_update(frm);
-  },
+  // indoor_serial_no: function(frm) {
+  //   frm.events.indoor_update(frm);
+  // },
 
 
 
-      indoor_update: function(frm) {
-        if (frm.doc.item && frm.doc.item.length > 0) {
-              frm.doc.item[0].serial_no = frm.doc.indoor_serial_no;
-              frm.refresh_field('item');
-          }
-      },
+  //     indoor_update: function(frm) {
+  //       if (frm.doc.item && frm.doc.item.length > 0) {
+  //             frm.doc.item[0].serial_no = frm.doc.indoor_serial_no;
+  //             frm.refresh_field('item');
+  //         }
+  //     },
 
 
-indoor_model: function(frm) {
-  frm.events.indoor_model_update(frm);
-      frm.set_value('indoor_serial_no', '');
-},
-
-
-
-    indoor_model_update: function(frm) {
-    if (frm.doc.item && frm.doc.item.length > 0) {
-          frm.doc.item[0].model_name = frm.doc.indoor_model;
-          frm.refresh_field('item');
-      }
-    },
+// indoor_model: function(frm) {
+//   frm.events.indoor_model_update(frm);
+//       frm.set_value('indoor_serial_no', '');
+// },
 
 
 
-
-
-
-    outdoor_serial_no: function(frm) {
-      frm.events.outdoor_update(frm);
-    },
-    outdoor_update: function(frm) {
-      if (frm.doc.item && frm.doc.item.length > 0) {
-          frm.doc.item[1].serial_no = frm.doc.outdoor_serial_no;
-          frm.refresh_field('item'); 
-      }
-    },
-
-
-
-outdoor_model: function(frm) {
-  frm.events.outdoor_model_update(frm);
-    frm.set_value('outdoor_serial_no', '');
-},
-
-
-
-    outdoor_model_update: function(frm) {
-    if (frm.doc.item && frm.doc.item.length > 0) {
-          frm.doc.item[1].model_name = frm.doc.outdoor_model;
-          frm.refresh_field('item');
-      }
-    },
+//     indoor_model_update: function(frm) {
+//     if (frm.doc.item && frm.doc.item.length > 0) {
+//           frm.doc.item[0].model_name = frm.doc.indoor_model;
+//           frm.refresh_field('item');
+//       }
+//     },
 
 
 
 
-tonnes: function(frm) {
-  frm.events.tonnes_update(frm);
 
-},
 
-    tonnes_update: function(frm) {
-      if (frm.doc.item && frm.doc.item.length > 0) {
-          frm.doc.item[0].tonnes = frm.doc.tonnes;
-          frm.doc.item[1].tonnes = frm.doc.tonnes;
-          frm.refresh_field('item');
-      }
-    },
+    // outdoor_serial_no: function(frm) {
+    //   frm.events.outdoor_update(frm);
+    // },
+    // outdoor_update: function(frm) {
+    //   if (frm.doc.item && frm.doc.item.length > 0) {
+    //       frm.doc.item[1].serial_no = frm.doc.outdoor_serial_no;
+    //       frm.refresh_field('item'); 
+    //   }
+    // },
+
+
+
+// outdoor_model: function(frm) {
+//   frm.events.outdoor_model_update(frm);
+//     frm.set_value('outdoor_serial_no', '');
+// },
+
+
+
+//     outdoor_model_update: function(frm) {
+//     if (frm.doc.item && frm.doc.item.length > 0) {
+//           frm.doc.item[1].model_name = frm.doc.outdoor_model;
+//           frm.refresh_field('item');
+//       }
+//     },
+
+
+
+
+// tonnes: function(frm) {
+//   frm.events.tonnes_update(frm);
+
+// },
+
+//     tonnes_update: function(frm) {
+//       if (frm.doc.item && frm.doc.item.length > 0) {
+//           frm.doc.item[0].tonnes = frm.doc.tonnes;
+//           frm.doc.item[1].tonnes = frm.doc.tonnes;
+//           frm.refresh_field('item');
+//       }
+//     },
 
 
 
@@ -207,7 +205,7 @@ tonnes: function(frm) {
     frm.set_query("outdoor_model", function () {
         return {
             filters: {
-
+                custom_model_type:'Outdoor Model',
                 item_group: frm.doc.brand_name,
                 custom_mc_type:frm.doc.mc_type,
                 custom_model: frm.doc.model_name,
@@ -326,15 +324,20 @@ frappe.new_doc("AMC");
 frappe.ui.form.on("Item table", {
 
 
-refresh(frm) {
-  frm.set_query("model_name", function () {
-      return {
-          filters: {
-              is_group: 1,
-          },
-      };
-  });
-},
+  // model_name:function(frm) {
+  //   console.log("working")
+  // frm.set_query("model_name", function () {
+  //     return {
+  //         filters: {
+  //           // custom_model_type:'Indoor Model',
+  //           item_group: frm.doc.brand_name,
+  //           custom_mc_type:frm.doc.mc_type,
+  //           custom_model: frm.doc.model_name,
+  //         },
+  //     };
+  // });
+  // console.log("not working")
+// },
 
 	
 
