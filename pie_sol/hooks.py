@@ -34,6 +34,8 @@ app_include_js = [
 doctype_js = {
     "Item":"pie_sol/utils/js/brand.js",
     "Customer":"/pie_sol/utils/js/customer.js",
+    "Maintenance Visit":"pie_sol/utils/js/maintenance_visit.js",
+    "Territory":"pie_sol/utils/js/territory.js"
  
 }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
@@ -151,7 +153,10 @@ doc_events = {
     "Maintenance Visit":{
     "after_insert":"pie_sol.pie_sol.utils.py.maintenance_visit.warranty",
     "on_cancel":"pie_sol.pie_sol.utils.py.maintenance_visit.warranty_cancel"
-    }
+    },
+    # "Territory":{
+    #     "validate":"pie_sol.pie_sol.utils.py.territory.area_pincode"
+    # }
     
 }
 

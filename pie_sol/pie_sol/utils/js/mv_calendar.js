@@ -39,8 +39,8 @@ frappe.ui.CalendarView = Class.extend({
             // console.log($event)
             // console.log(date)
             // Calculate position for the cyan box
-            var posX = event.pageX;
-            var posY = event.pageY + 20; // Adjust vertical offset as needed
+            var posX = event.pageX + 50;
+            var posY = event.pageY - 100; // Adjust vertical offset as needed
             
             // Show the cyan box with data
             me.show_message(data, posX, posY);
@@ -52,10 +52,11 @@ frappe.ui.CalendarView = Class.extend({
         // Create the cyan box dynamically
         var cyanBox = $('<div class="cyan-box">');
         cyanBox.css({
-            'background-color': '#D7B38C',
-            'width': '200px',
-            'height': '250px',
-            'position': 'absolute', // Use fixed position for a fixed location on screen
+            'background-color': '#c4e0ff',
+            'color':'#0776f5',
+            'width': '250px',
+            'height': '180px',
+            'position': 'fixed', // Use fixed position for a fixed location on screen
             'left': posX + 'px',
             'top': posY + 'px',
             'padding': '10px',
@@ -66,6 +67,37 @@ frappe.ui.CalendarView = Class.extend({
         });
     
         // Make an AJAX call to fetch additional data
+        // frappe.call({
+        //     method: 'pie_sol.pie_sol.utils.py.mvcalendar.mvcalendarget',
+        //     args: {
+        //         custom_warrantyamc: data
+        //     },
+        //     callback: function(response) {
+        //         var documents = response.message; // Array of documents fetched
+        //         var name = documents.name;
+        //         var machineid = documents.custom_machine_id;
+        //         var planneddate = documents.mntc_date;
+        //         var replanneddate = documents.custom_replanned_service_date;
+        //         var customer = documents.customer;
+        //         var mobile=documents.contact_mobile
+        //         var type=documents.maintenance_type
+    
+        //         // Create content for the cyan box
+        //         var content = $('<div>').html(`
+        //             <p style="font-size:12px"><strong>MV Id</strong> ${name}</p>
+        //             <p style="font-size:12px"><strong>Planned Date:</strong> ${planneddate}</p>
+
+        //             <p style="font-size: 12px;"><strong>Replanned Date:</strong> {{ replanneddate }}</p>
+
+
+        //             <p style="font-size:12px"><strong>Customer:</strong> ${customer}</p>
+        //             <p style="font-size:12px"><strong>type</strong> ${type}</p>
+        //             <p style="font-size:12px"><strong>Mobile Number:</strong> ${mobile}</p>
+        //         `);
+        //         cyanBox.append(content);
+        //     }
+        // });
+
         frappe.call({
             method: 'pie_sol.pie_sol.utils.py.mvcalendar.mvcalendarget',
             args: {
@@ -73,25 +105,41 @@ frappe.ui.CalendarView = Class.extend({
             },
             callback: function(response) {
                 var documents = response.message; // Array of documents fetched
-                var name = documents.name;
-                var machineid = documents.custom_machine_id;
-                var planneddate = documents.mntc_date;
-                var replanneddate = documents.custom_replanned_service_date;
-                var customer = documents.customer;
-                var mobile=documents.contact_mobile
-    
+        
+                // Initialize variables with default empty values
+                var name = "";
+                var machineid = "";
+                var planneddate = "";
+                var replanneddate = "";
+                var customer = "";
+                var mobile = "";
+                var type = "";
+        
+                // Check if response.message is defined to avoid errors
+                if (documents) {
+                    // Assign values if documents exist
+                    name = documents.name || "";
+                    machineid = documents.custom_machine_id || "";
+                    planneddate = documents.mntc_date || "";
+                    replanneddate = documents.custom_replanned_service_date || "";
+                    customer = documents.customer || "";
+                    mobile = documents.contact_mobile || "";
+                    type = documents.maintenance_type || "";
+                }
+        
                 // Create content for the cyan box
                 var content = $('<div>').html(`
-                    <p style="font-size:12px"><strong>Name:</strong> ${name}</p>
-                    <p style="font-size:12px"><strong>Machine ID:</strong> ${machineid}</p>
+                    <p style="font-size:12px"><strong>MV Id:</strong> ${name}</p>
                     <p style="font-size:12px"><strong>Planned Date:</strong> ${planneddate}</p>
                     <p style="font-size:12px"><strong>Replanned Date:</strong> ${replanneddate}</p>
                     <p style="font-size:12px"><strong>Customer:</strong> ${customer}</p>
+                    <p style="font-size:12px"><strong>Type:</strong> ${type}</p>
                     <p style="font-size:12px"><strong>Mobile Number:</strong> ${mobile}</p>
                 `);
                 cyanBox.append(content);
             }
         });
+        
     
         // Append the cyan box to the body or another appropriate container
         $('body').append(cyanBox);

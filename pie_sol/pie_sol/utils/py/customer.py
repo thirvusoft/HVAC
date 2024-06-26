@@ -50,7 +50,6 @@ def customerservice(doc,events):
             'brand_name':doc.brand_name,
             'mc_type':doc.mc_type,
             'model_name':doc.model_name,
-            'indoor_model':doc.indoor_model,
             'outdoor_model':doc.outdoor_model,
             'tonnes':doc.tonnes,
             'date':doc.installation_date,

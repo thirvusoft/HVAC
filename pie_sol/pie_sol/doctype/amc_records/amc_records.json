@@ -72,16 +72,17 @@
   },
   {
    "fieldname": "amc_id",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "in_list_view": 1,
    "label": "AMC ID",
+   "options": "AMC",
    "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-05-30 19:56:15.291162",
+ "modified": "2024-06-26 15:24:27.903683",
  "modified_by": "Administrator",
  "module": "pie-sol",
  "name": "AMC records",
