@@ -51,15 +51,16 @@ def warranty_maintenance(machine, warranty_name, customer_name, table_hsoa):
         war_visit.maintenance_type = "Warranty"
 
         machine2 = frappe.get_doc("Machine", machine)
-        war_visit.append("purposes", {
-            'item_name': machine2.indoor_model,
-            'custom_serial_number': machine2.indoor_serial_no
-        })
-        war_visit.append("purposes", {
-            'item_name': machine2.outdoor_model,
-            'custom_serial_number': machine2.outdoor_serial_no
-        })
-        print("^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
+        for row in machine2.item:
+             
+            war_visit.append("purposes", {
+                'custom_model_type':row.model_type,
+                'custom_tonnes':row.tonnes,
+                'custom_model_name_2': row.model_name,
+                'custom_serial_number': row.serial_no
+            })
+
+       
 
         customer=frappe.get_doc("Customer",customer_name)
 
@@ -95,13 +96,22 @@ def warranty_maintenance(machine, warranty_name, customer_name, table_hsoa):
     #     frappe.log_error(frappe.get_traceback(), 'Warranty Maintenance Error')
     #     raise e
 
-
-
+@frappe.whitelist()
+def mv(machine):
+    war_visit = []
+    m = frappe.get_doc('Machine', machine)
+    for row in m.item:
+        war_visit.append({
+            'custom_model_type': row.model_type,
+            'custom_tonnes': row.tonnes,
+            'custom_model_name_2': row.model_name,
+            'custom_serial_number': row.serial_no
+        })
+    return war_visit
 
 
 @frappe.whitelist()
 def amc_maintenance(machine, warranty_name, customer_name, table_hsoa):
-    print("^^^^^^^^^^^^^^^^^^^^^^^^^^^")
     table_hsoa = json.loads(table_hsoa)
     for row in table_hsoa:
         war_visit = frappe.new_doc("Maintenance Visit")
@@ -113,14 +123,16 @@ def amc_maintenance(machine, warranty_name, customer_name, table_hsoa):
         war_visit.maintenance_type = "AMC"
 
         machine2 = frappe.get_doc("Machine", machine)
-        war_visit.append("purposes", {
-            'item_name': machine2.indoor_model,
-            'custom_serial_number': machine2.indoor_serial_no
-        })
-        war_visit.append("purposes", {
-            'item_name': machine2.outdoor_model,
-            'custom_serial_number': machine2.outdoor_serial_no
-        })
+
+        for row in machine2.item:
+             
+            war_visit.append("purposes", {
+                'custom_model_type':row.model_type,
+                'custom_tonnes':row.tonnes,
+                'custom_model_name_2': row.model_name,
+                'custom_serial_number': row.serial_no
+            })
+       
 
         customer=frappe.get_doc("Customer",customer_name)
 
@@ -130,14 +142,11 @@ def amc_maintenance(machine, warranty_name, customer_name, table_hsoa):
         for entry in temp:
             temp1=entry['parent']
             break
-        print(temp1,"$$$$$$$$$$$$$$$$$$$$$$$$$$")
         war_visit.custom_technician=temp1
 
-        print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
         war_visit.save()
 
 
-    print(warranty_name,"^^^^^^^^^^^^^")
     frappe.db.set_value("AMC",warranty_name,'custom_created','1')
     frappe.db.commit()
 

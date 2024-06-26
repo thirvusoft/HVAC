@@ -9,7 +9,7 @@ def mvcalendarget(custom_warrantyamc):
 
 
     # Using frappe.get_all() with the same filter
-    m = frappe.get_last_doc('Maintenance Visit', filters={'custom_warrantyamc': filter_str})
+    m = frappe.get_last_doc('Maintenance Visit', filters={'custom_machine_id': filter_str})
     return m
 
 
