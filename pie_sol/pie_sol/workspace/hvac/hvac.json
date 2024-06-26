@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"_mzX6W5lcX\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">HVAC</span>\",\"col\":12}},{\"id\":\"aSfjLkX9bV\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Customer\",\"col\":5}},{\"id\":\"C9XwQwFQaa\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Active Customer\",\"col\":5}},{\"id\":\"ME_jE8lU1U\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Machine\",\"col\":5}},{\"id\":\"GCTaG9GNj-\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Entries\",\"col\":5}},{\"id\":\"jiGycbQI2E\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Warranty\",\"col\":5}},{\"id\":\"_M2og7zKMd\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Warranty\",\"col\":5}},{\"id\":\"W30P4X3JQ1\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"AMC\",\"col\":5}},{\"id\":\"VxxU-4Pu5B\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total AMC\",\"col\":5}},{\"id\":\"xlIcjXK2N1\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Masters</b></span>\",\"col\":12}},{\"id\":\"UmI4w6pmQm\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Brand & Model\",\"col\":12}},{\"id\":\"ifRnzKrHjW\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item \",\"col\":12}},{\"id\":\"Sf4thzl5c9\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Assign Technician\",\"col\":12}},{\"id\":\"5c8U-9mbyQ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Calendar view\",\"col\":3}},{\"id\":\"28kyjwRVRX\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports</b></span>\",\"col\":12}},{\"id\":\"XO3ZzOUsWu\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Service Coordinator Report\",\"col\":7}},{\"id\":\"VtIeIS1GFz\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Schedule Confirmation Report\",\"col\":7}}]",
+ "content": "[{\"id\":\"_mzX6W5lcX\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">HVAC</span>\",\"col\":12}},{\"id\":\"aSfjLkX9bV\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Customer\",\"col\":5}},{\"id\":\"C9XwQwFQaa\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Active Customer\",\"col\":5}},{\"id\":\"ME_jE8lU1U\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Machine\",\"col\":5}},{\"id\":\"GCTaG9GNj-\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Entries\",\"col\":5}},{\"id\":\"jiGycbQI2E\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Warranty\",\"col\":5}},{\"id\":\"_M2og7zKMd\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Warranty\",\"col\":5}},{\"id\":\"W30P4X3JQ1\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"AMC\",\"col\":5}},{\"id\":\"VxxU-4Pu5B\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total AMC\",\"col\":5}},{\"id\":\"xlIcjXK2N1\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Masters</b></span>\",\"col\":12}},{\"id\":\"UmI4w6pmQm\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Brand & Model\",\"col\":12}},{\"id\":\"ifRnzKrHjW\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item \",\"col\":12}},{\"id\":\"Sf4thzl5c9\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Assign Technician\",\"col\":12}},{\"id\":\"5c8U-9mbyQ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Calendar view\",\"col\":3}},{\"id\":\"28kyjwRVRX\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports</b></span>\",\"col\":12}},{\"id\":\"XO3ZzOUsWu\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Service Coordinator Report\",\"col\":12}},{\"id\":\"714P2HPP3n\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Schedule Confirmation Report\",\"col\":12}}]",
  "creation": "2024-05-14 17:33:56.219969",
  "custom_blocks": [],
  "docstatus": 0,
@@ -23,7 +23,7 @@
    "type": "Link"
   }
  ],
- "modified": "2024-06-26 16:54:54.634438",
+ "modified": "2024-06-26 18:06:28.783493",
  "modified_by": "Administrator",
  "module": "pie-sol",
  "name": "HVAC",
@@ -69,17 +69,17 @@
   {
    "color": "Grey",
    "doc_view": "List",
-   "label": "Item ",
-   "link_to": "Item",
-   "stats_filter": "[]",
-   "type": "DocType"
+   "label": "Schedule Confirmation Report",
+   "link_to": "Schedule Confirmation Report",
+   "type": "Report"
   },
   {
    "color": "Grey",
    "doc_view": "List",
-   "label": "Schedule Confirmation Report",
-   "link_to": "Schedule Confirmation --Report",
-   "type": "Report"
+   "label": "Item ",
+   "link_to": "Item",
+   "stats_filter": "[]",
+   "type": "DocType"
   },
   {
    "color": "Grey",
