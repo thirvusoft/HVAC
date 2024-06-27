@@ -183,6 +183,12 @@ frappe.ui.form.on("Customer", {
                     reqd: true
                 },
                 {
+                    label: 'Installation Date',
+                    fieldname: 'add_date',
+                    fieldtype: 'Date',
+                    reqd: true
+                },
+                {
                     label: 'MC Warranty',
                     fieldname: 'mc_warranty',
                     fieldtype: 'Select',
@@ -190,7 +196,7 @@ frappe.ui.form.on("Customer", {
                     reqd: true
                 },
                 {
-                    label: 'Outdoor model',
+                    label: 'Outdoor Model',
                     fieldname: 'add_outdoor_model',
                     fieldtype: 'Link',
                     options: 'Item',
@@ -209,18 +215,13 @@ frappe.ui.form.on("Customer", {
                     }
                 },
                 {
-                    label: 'Outdoor serial number',
+                    label: 'Outdoor Serial Number',
                     fieldname: 'add_outdoor_serial_no',
                     fieldtype: 'Data',
                     reqd: true, 
                     
                 },
-                {
-                    label: 'Date',
-                    fieldname: 'add_date',
-                    fieldtype: 'Date',
-                    reqd: true
-                }
+                
             ],
             size: 'small', // small, large, extra-large 
             primary_action_label: 'Submit',

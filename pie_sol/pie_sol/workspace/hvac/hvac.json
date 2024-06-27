@@ -23,8 +23,8 @@
    "type": "Link"
   }
  ],
- "modified": "2024-06-26 18:06:28.783493",
- "modified_by": "Administrator",
+ "modified": "2024-06-27 17:38:25.508024",
+ "modified_by": "sathyad@thirvusoft.in",
  "module": "pie-sol",
  "name": "HVAC",
  "number_cards": [
@@ -51,10 +51,7 @@
  "quick_lists": [],
  "roles": [
   {
-   "role": "Service Coordinator"
-  },
-  {
-   "role": "technician"
+   "role": "All"
   }
  ],
  "sequence_id": 28.0,
