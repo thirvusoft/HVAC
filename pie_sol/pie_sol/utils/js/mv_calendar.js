@@ -39,8 +39,8 @@ frappe.ui.CalendarView = Class.extend({
             // console.log($event)
             // console.log(date)
             // Calculate position for the cyan box
-            var posX = event.pageX + 50;
-            var posY = event.pageY - 100; // Adjust vertical offset as needed
+            var posX = event.pageX ;
+            var posY = event.pageY - 200; // Adjust vertical offset as needed
             
             // Show the cyan box with data
             me.show_message(data, posX, posY);
