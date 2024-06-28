@@ -11,6 +11,9 @@ frappe.ui.form.on("Item", {
           
         }
       );
+    },
+
+    item_group:function(frm){
 
       frm.set_query("custom_mc_type", function () {
         return {
@@ -22,6 +25,8 @@ frappe.ui.form.on("Item", {
         
       }
     );
+    frm.set_value('custom_mc_type', '');
+    frm.set_value('custom_model', '');
 
 
 
@@ -41,6 +46,8 @@ frappe.ui.form.on("Item", {
             },
           };
         });
+
+        frm.set_value('custom_model', '');
  
 	},
 
