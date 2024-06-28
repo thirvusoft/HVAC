@@ -55,7 +55,6 @@ frappe.ui.CalendarView = Class.extend({
             'background-color': '#c4e0ff',
             'color':'#0776f5',
             'width': '250px',
-            'height': '180px',
             'position': 'fixed', // Use fixed position for a fixed location on screen
             'left': posX + 'px',
             'top': posY + 'px',
